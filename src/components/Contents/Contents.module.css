@@ -2,6 +2,7 @@
 .Content {
 	position: fixed;
 	background-color: var(--bg-color);
+	width: 60%; /* 100 - 20vw*2 */
 	margin: 10vh 20vw;
 	justify-content: center;
 	border-style: double;
@@ -27,11 +28,8 @@
 	margin: 20px 0;
 }
 
-.Content h1, .Content h2 {
-	font-family: 'Times New Roman', serif;
-}
-
 .Content h1 {
+	font-family: 'Times New Roman', serif;
 	font-size: 64px;
 	padding: 0;
 	margin: 0;

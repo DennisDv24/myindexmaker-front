@@ -2,6 +2,7 @@
 import { FC } from 'react';
 import { MainNav } from '../MainNav/MainNav';
 import contentsStyle from './Contents.module.css';
+import { DerivCollections } from '../DerivCollections/DerivCollections';
 
 export const Contents: FC = () => {
 	return (
@@ -15,12 +16,7 @@ export const Contents: FC = () => {
 				</h2>
 			</div>
 			<MainNav />
-			<p>
-			Consectetur molestias corporis optio possimus voluptate
-			reiciendis Illum recusandae sequi quisquam quo nostrum? Maiores
-			fuga inventore nesciunt amet dolor dicta quo! Nihil soluta error
-			quaerat doloremque itaque omnis magnam Quo.
-			</p>
+			<DerivCollections />
 		</div>
 	)
 }

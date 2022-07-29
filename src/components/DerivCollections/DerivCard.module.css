@@ -1,0 +1,25 @@
+
+.Card {
+	display: flex;
+	justify-content: space-between;
+	margin: 5px 0;
+	text-align: left;
+}
+
+.Card span {
+	margin: auto 0;
+}
+
+.Card img {
+	width: 10%;	
+	aspect-ratio: 1/1;
+	object-fit: cover;
+}
+
+.Card img {
+	padding: 5px;
+}
+
+.IsNotInfo {
+	background-color: #fbdee4
+}
