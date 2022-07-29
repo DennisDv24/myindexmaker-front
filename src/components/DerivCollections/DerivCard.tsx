@@ -15,12 +15,30 @@ export const DerivCard: FC<{
 		<tr className={
 			`${cardStyle.Card.toString()} ${cardStyle.IsNotInfo.toString()}`
 		}>
-			<img src={img} alt="" />
-			<span>{name}</span>
-			<span>{volume}</span>
-			<span>{supply}</span>
-			<span>{tokensPerWallet}</span>
-			<span>{daoRank}</span>
+			<th className={cardStyle.CardImg}>
+				<img src={img} alt="" />
+			</th>
+			<th className={cardStyle.CardName}>
+				{name}
+			</th>
+			<th className={cardStyle.Data}>
+			{volume}
+			</th>
+			<th className={cardStyle.Data}>
+			{supply}
+			</th>
+			<th className={cardStyle.Data}>
+			{tokensPerWallet}
+			</th>
+			<th className={cardStyle.Data}>
+			{daoRank}
+			</th>
+			<th className={cardStyle.Data}>
+			{8}
+			</th>
+			<th className={cardStyle.Data}>
+			{13}
+			</th>
 		</tr>
 	)	
 }

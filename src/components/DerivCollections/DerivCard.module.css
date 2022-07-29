@@ -1,24 +1,30 @@
 
 .Card {
-	display: flex;
-	justify-content: space-between;
-	margin: 5px 0;
-	text-align: left;
-}
-
-.Card span {
+	text-align: center;
 	margin: auto 0;
 }
 
+.CardImg {
+	width: 10%;
+	padding: 5px
+}
+
 .Card img {
-	width: 10%;	
+	width: 100%;
 	aspect-ratio: 1/1;
 	object-fit: cover;
 }
 
-.Card img {
-	padding: 5px;
+.CardName {
+	width: 30%;
+	font-size: 32px;
 }
+
+.Data {
+	font-size: 26px;
+	width: 10%
+}
+
 
 .IsNotInfo {
 	background-color: #fbdee4
