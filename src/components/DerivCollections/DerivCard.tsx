@@ -10,7 +10,6 @@ export const DerivCard: FC<{
 	tokensPerWallet: string,
 	daoRank: string
 }> = ({ name, img, volume, supply, tokensPerWallet, daoRank }) => {
-	console.log(cardStyle.Card);
 	return (
 		<tr className={
 			`${cardStyle.Card.toString()} ${cardStyle.IsNotInfo.toString()}`
