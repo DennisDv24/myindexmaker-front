@@ -7,7 +7,7 @@ import { DerivCollections } from '../DerivCollections/DerivCollections';
 export const Contents: FC = () => {
 	return (
 		<div className={contentsStyle.Content}>
-			<div className='MainHeading'>
+			<div className={contentsStyle.MainHeading}>
 				<h1>
 					MyIndex Maker
 				</h1>

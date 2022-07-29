@@ -1,12 +1,22 @@
 
+.DerivTable {
+	margin: 3%;
+	border: 0;
+	border-collapse: collapse;
+}
+
 .Card {
 	text-align: center;
 	margin: auto 0;
+	background-color: #f0eadb;
+	border-left: 1px solid;
+	border-right: 1px solid;
+	border-color: var(--button-border-color2);
 }
 
 .CardImg {
 	width: 10%;
-	padding: 5px
+	padding: 5px 10px
 }
 
 .Card img {
@@ -15,17 +25,21 @@
 	object-fit: cover;
 }
 
+.Card td {
+	border: 3px solid;
+	border: 0;
+}
+.Card th {
+	border: 0
+
+}
+
 .CardName {
 	width: 30%;
 	font-size: 32px;
 }
 
 .Data {
-	font-size: 26px;
+	font-size: 20px;
 	width: 10%
-}
-
-
-.IsNotInfo {
-	background-color: #fbdee4
 }

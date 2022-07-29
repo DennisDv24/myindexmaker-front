@@ -1,20 +1,40 @@
 
 import { DerivCard } from './DerivCard';
+import { FaSortAmountDownAlt, FaSortAmountUpAlt } from 'react-icons/fa';
+
+import derivStyle from './DerivCard.module.css';
+
 
 export const DerivCollections = () => {
 	return (
-		<table style={{
-			margin: '3%',
-		}}>
+		<table className={derivStyle.DerivTable}>
 			<tr>
-				<td></td>
-				<td>Name</td>
-				<td>Volume</td>
-				<td>Supply</td>
-				<td>Tokens Per Wallet mean</td>
-				<td>DAO Rank</td>
-				<td>Extra lorem</td>
-				<td>Extra ipsum</td>
+				<th></th>
+				<th>Name</th>
+				<th>
+					<FaSortAmountUpAlt />
+					Volume
+				</th>
+				<th>
+					<FaSortAmountUpAlt />
+					Supply
+				</th>
+				<th>
+					<FaSortAmountUpAlt />
+					Tokens Per Wallet mean
+				</th>
+				<th>
+					<FaSortAmountDownAlt />
+					DAO Rank
+				</th>
+				<th>
+					<FaSortAmountUpAlt />
+					Extra lorem
+				</th>
+				<th>
+					<FaSortAmountUpAlt />
+					Extra ipsum
+				</th>
 			</tr>
 			<DerivCard	
 				name='Milady Maker'
@@ -41,8 +61,24 @@ export const DerivCollections = () => {
 				daoRank='4'
 			/>
 			<DerivCard	
-				name='Random Collection'
-				img='https://lh3.googleusercontent.com/RcCll0PWAnUGr1oYk250Mm0fAW5u0-pkEzOaxSHm6qiHotaqjVtePqkf0CD6v2ef1uxhrqW6KZI3ZYqfURKSiecnSd2ofngQNepxbw=s0'
+				name='milAIdy maker'
+				img='https://lh3.googleusercontent.com/rybJRSagcBB-FhWp2pRRFdOKsypJ1n2gqYIpMDD8QLztqh64cjo1FNXKwty4qYNWxWHPaSmxagiAE1MYR3vtPvAR-psaRVNjYLxSWA=s0'
+				volume='10'
+				supply='300'
+				tokensPerWallet='3'
+				daoRank='4'
+			/>
+			<DerivCard	
+				name='milAIdy maker'
+				img='https://lh3.googleusercontent.com/rybJRSagcBB-FhWp2pRRFdOKsypJ1n2gqYIpMDD8QLztqh64cjo1FNXKwty4qYNWxWHPaSmxagiAE1MYR3vtPvAR-psaRVNjYLxSWA=s0'
+				volume='10'
+				supply='300'
+				tokensPerWallet='3'
+				daoRank='4'
+			/>
+			<DerivCard	
+				name='milAIdy maker'
+				img='https://lh3.googleusercontent.com/rybJRSagcBB-FhWp2pRRFdOKsypJ1n2gqYIpMDD8QLztqh64cjo1FNXKwty4qYNWxWHPaSmxagiAE1MYR3vtPvAR-psaRVNjYLxSWA=s0'
 				volume='10'
 				supply='300'
 				tokensPerWallet='3'

@@ -1,7 +1,9 @@
 
+
 .MainNav button {
 	font-size: 22px;
 	margin: 10px;
+	margin-bottom: 20px;
 	background-color: var(--);
 	background: var(--button-color) !important;
 	border-width: 5px;

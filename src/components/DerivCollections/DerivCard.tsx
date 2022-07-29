@@ -11,9 +11,12 @@ export const DerivCard: FC<{
 	daoRank: string
 }> = ({ name, img, volume, supply, tokensPerWallet, daoRank }) => {
 	return (
-		<tr className={
-			`${cardStyle.Card.toString()} ${cardStyle.IsNotInfo.toString()}`
-		}>
+		<tr 
+			//className={
+				//`${cardStyle.Card.toString()} ${cardStyle.IsNotInfo.toString()}`
+			//}
+			className={cardStyle.Card}
+		>
 			<th className={cardStyle.CardImg}>
 				<img src={img} alt="" />
 			</th>

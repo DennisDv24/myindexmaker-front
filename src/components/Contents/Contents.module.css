@@ -1,6 +1,6 @@
 
 .Content {
-	position: fixed;
+	position: sticky;
 	background-color: var(--bg-color);
 	width: 60%; /* 100 - 20vw*2 */
 	margin: 10vh 20vw;
@@ -22,10 +22,11 @@
 	border-width: 3px;
 	border-color: var(--button-border-color2);
 	background-clip: padding-box;
+  	box-shadow: -15px 15px #00000033;
 }
 
 .MainHeading {
-	margin: 20px 0;
+	margin: 30px 0;
 }
 
 .Content h1 {
