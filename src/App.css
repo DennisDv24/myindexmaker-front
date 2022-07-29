@@ -1,38 +1,83 @@
+:root {
+	--heading-color: #014;
+	--bg-color: #fdf6e3;
+	--button-color: var(--heading-color);
+	--button-border-color1: #541a62;
+	--button-border-color2: #724084;
+	--button-text-color: white;
+}
+
+html {
+	background: url("./resources/clouds.png") no-repeat center center fixed;
+	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;
+}
+
 .App {
-  text-align: center;
+  	text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.Content {
+	position: fixed;
+	background-color: var(--bg-color);
+	margin: 10vh 20vw;
+	justify-content: center;
+	border-style: double;
+	border-width: 15px;
+	border-color: var(--bg-color);
+	background-clip: padding-box;
+}
+.Content:after {
+  	content: " ";
+  	position: absolute;
+  	z-index: -1;
+  	top: -18px;
+  	left: -18px;
+  	right: -18px;
+  	bottom: -18px;
+	border-style: solid;
+	border-width: 3px;
+	border-color: var(--button-border-color2);
+	background-clip: padding-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
+.MainHeading {
+	margin: 20px 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.Content h1, .Content h2 {
+	font-family: Times
 }
 
-.App-link {
-  color: #61dafb;
+.Content h1 {
+	font-size: 64px;
+	padding: 0;
+	margin: 0;
+	color: var(--heading-color);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Content h2 {
+	font-size: 32px;
+	margin: 0;
+}
+
+.MainNav button {
+	font-size: 22px;
+	margin: 10px;
+	background-color: var(--);
+	background: var(--button-color) !important;
+	border-width: 5px;
+	color: var(--button-text-color);
+	border-color: 
+		var(--button-border-color2) var(--button-border-color2)
+		var(--button-border-color1) var(--button-border-color1)
+}
+
+.Content p {
+	font-size: 28px;
+	margin: 20px;
+	padding: 0;
 }
