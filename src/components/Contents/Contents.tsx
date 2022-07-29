@@ -1,9 +1,11 @@
 
 import { FC } from 'react';
+import { MainNav } from '../MainNav/MainNav';
+import contentsStyle from './Contents.module.css';
 
 export const Contents: FC = () => {
 	return (
-		<div className='Content'>
+		<div className={contentsStyle.Content}>
 			<div className='MainHeading'>
 				<h1>
 					MyIndex Maker
@@ -12,11 +14,7 @@ export const Contents: FC = () => {
 					Milady and Remilia derived collections
 				</h2>
 			</div>
-			<nav className='MainNav'>
-				<button>Index</button>
-				<button>Audit projects</button>
-				<button>About</button>
-			</nav>
+			<MainNav />
 			<p>
 			Consectetur molestias corporis optio possimus voluptate
 			reiciendis Illum recusandae sequi quisquam quo nostrum? Maiores

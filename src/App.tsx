@@ -2,7 +2,7 @@
 import React from 'react';
 import bgImage from './resources/clouds.png';
 import './App.css';
-import { Contents } from './components/Contents';
+import { Contents } from './components/Contents/Contents';
 
 function App() {
   	return (

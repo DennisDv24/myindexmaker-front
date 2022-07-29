@@ -1,0 +1,51 @@
+
+.Content {
+	position: fixed;
+	background-color: var(--bg-color);
+	margin: 10vh 20vw;
+	justify-content: center;
+	border-style: double;
+	border-width: 15px;
+	border-color: var(--bg-color);
+	background-clip: padding-box;
+}
+.Content:after {
+  	content: " ";
+  	position: absolute;
+  	z-index: -1;
+  	top: -18px;
+  	left: -18px;
+  	right: -18px;
+  	bottom: -18px;
+	border-style: solid;
+	border-width: 3px;
+	border-color: var(--button-border-color2);
+	background-clip: padding-box;
+}
+
+.MainHeading {
+	margin: 20px 0;
+}
+
+.Content h1, .Content h2 {
+	font-family: 'Times New Roman', serif;
+}
+
+.Content h1 {
+	font-size: 64px;
+	padding: 0;
+	margin: 0;
+	color: var(--heading-color);
+}
+
+.Content h2 {
+	font-size: 32px;
+	margin: 0;
+}
+
+.Content p {
+	font-size: 28px;
+	margin: 20px;
+	padding: 0;
+}
+
