@@ -8,7 +8,7 @@ import derivStyle from './DerivCard.module.css';
 export const DerivCollections = () => {
 	return (
 		<table className={derivStyle.DerivTable}>
-			<tr>
+			<tr className={derivStyle.TableHeading}>
 				<th></th>
 				<th>Name</th>
 				<th>

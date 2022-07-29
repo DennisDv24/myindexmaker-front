@@ -31,7 +31,6 @@
 }
 .Card th {
 	border: 0
-
 }
 
 .CardName {
@@ -42,4 +41,31 @@
 .Data {
 	font-size: 20px;
 	width: 10%
+}
+
+@media (max-width: 1439px) {
+	.CardName {
+		font-size: 28px;
+	}
+	.TableHeading {
+		font-size: 12px;
+	}
+}
+
+@media (max-width: 1024px) {
+	.CardName {
+		font-size: 24px;
+	}
+}
+
+@media (max-width: 768px) {
+	.CardName {
+		font-size: 16px;
+	}
+	.Data {
+		font-size: 16px;
+	}
+	.TableHeading {
+		font-size: 10px;
+	}
 }
