@@ -8,7 +8,7 @@ import derivStyle from './DerivCard.module.css';
 
 export const DerivCollections: React.FC = () => {
 
-	const [miladySupply, setMiladySupply] = useState<"">("");
+	const [miladySupply, setMiladySupply] = useState("");
 	const [miladyVolume, setMiladyVolume] = useState("");
 	const [miladyNumTokens, setMiladyNumTokens] = useState("");
 
@@ -16,7 +16,7 @@ export const DerivCollections: React.FC = () => {
 	const [bannerVolume, setBannerVolume] = useState("");
 	const [bannerNumTokens, setBannerNumTokens] = useState("");
 
-	const [auraSupply, setAuraSupply] = useState<"">("");
+	const [auraSupply, setAuraSupply] = useState("");
 	const [auraVolume, setAuraVolume] = useState("");
 	const [auraNumTokens, setAuraNumTokens] = useState("");
 	
@@ -48,7 +48,7 @@ export const DerivCollections: React.FC = () => {
 				}
 				case "miladyaura": {
 					setAuraSupply(supply);
-					setAuraVolume(volStr);
+					setAuraVolume(volStr);	
 					setAuraNumTokens(numTokensPerWallet);
 				}
 			}

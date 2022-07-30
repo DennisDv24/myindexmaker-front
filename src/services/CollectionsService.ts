@@ -1,6 +1,6 @@
-import http from "../utils/apiUtils";
+import openSea from "../utils/collectionApi";
 const getCollection = (collection: string) => {
-  return http.get(`/${collection}`);
+  return openSea.get(`/${collection}`);
 };
 const CollectionService = {
   getCollection,
