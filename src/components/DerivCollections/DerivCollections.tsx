@@ -12,7 +12,7 @@ export const DerivCollections: React.FC = () => {
 	const [miladyVolume, setMiladyVolume] = useState("");
 	const [miladyNumTokens, setMiladyNumTokens] = useState("");
 
-	const [bannerSupply, setBannerSupply] = useState<"">("");
+	const [bannerSupply, setBannerSupply] = useState("");
 	const [bannerVolume, setBannerVolume] = useState("");
 	const [bannerNumTokens, setBannerNumTokens] = useState("");
 
