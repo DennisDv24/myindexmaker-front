@@ -34,12 +34,16 @@
 .Links {
 	width: 130px;
 	margin: 0 auto;
+	margin-bottom: 100px;
+	background: linear-gradient(360deg, rgba(255,255,255,0.3) 47%, rgba(185,255,236,0) 100%);
+
+	padding: 10px;
 }
 
 .Links div {
 	width: 100%;
 	height: 130px;
-	margin: 65px auto;
+	margin: 16px auto;
 	background: url('../../resources/small-diamond.svg') no-repeat center center;
 	background-size: 130px;
 	position: relative;
