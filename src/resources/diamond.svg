@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="201.13138mm"
+   height="205.56572mm"
+   viewBox="0 0 201.13138 205.56572"
+   version="1.1"
+   id="svg19"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   sodipodi:docname="diamond.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview21"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.99368014"
+     inkscape:cx="240.01687"
+     inkscape:cy="413.1108"
+     inkscape:window-width="1916"
+     inkscape:window-height="1050"
+     inkscape:window-x="0"
+     inkscape:window-y="26"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     showguides="true">
+    <sodipodi:guide
+       position="0.56563595,215.00008"
+       orientation="0,755.90551"
+       id="guide87"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="200.56564,215.00008"
+       orientation="755.90551,0"
+       id="guide89"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="0.56563595,15.000077"
+       orientation="-755.90551,0"
+       id="guide93"
+       inkscape:locked="false" />
+  </sodipodi:namedview>
+  <defs
+     id="defs16" />
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0.56563594,-9.4343576)">
+    <path
+       id="path20066"
+       style="fill:#fdf6e3;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+       d="M 100.0001,9.9998866 0,109.99999 100.0001,210.00009 200.0002,109.99999 Z m 0,5.0002124 94.99988,94.999891 -94.99988,94.99988 -94.9998884,-94.99988 z" />
+    <path
+       id="path380"
+       style="fill:none;fill-opacity:1;stroke:#724084;stroke-width:0.8;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+       d="m 4.95e-5,110.00004 100.0000005,100 100,-100 -100,-99.999997 z" />
+    <path
+       style="fill:#fdf6e3;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+       d="M 99.999999,200 10.000002,110 99.999999,20.000005 190,110 99.999999,200"
+       id="path20066-5" />
+    <path
+       style="fill:#000000;fill-opacity:0.2;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+       d="m 99.999997,215.00007 99.999993,-99.99999 -2.49999,-2.5 -97.49995,97.49996 z"
+       id="path33345" />
+    <path
+       style="fill:#000000;fill-opacity:0.2;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+       d="M 99.999997,215.00007 0,115.00008 2.5000438,112.50003 100.00005,210.00004 Z"
+       id="path34073" />
+  </g>
+</svg>

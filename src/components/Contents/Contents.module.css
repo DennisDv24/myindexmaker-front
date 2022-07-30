@@ -1,4 +1,10 @@
 
+@font-face {
+	font-family: "Citizen";
+	src: url("./../../resources/medio.otf");
+	font-stretch: 25%;
+}
+
 .Content {
 	position: sticky;
 	background-color: var(--bg-color);
@@ -30,7 +36,7 @@
 }
 
 .Content h1 {
-	font-family: 'Times New Roman', serif;
+	font-family: 'Citizen';
 	font-size: 64px;
 	padding: 0;
 	margin: 0;

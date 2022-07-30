@@ -69,6 +69,10 @@
 	.TableHeading {
 		font-size: 10px;
 	}
+	.CardImg {
+		width: 10%;
+		padding: 0;
+	}
 }
 
 #first td {

@@ -12,3 +12,9 @@
 		var(--button-border-color2) var(--button-border-color2)
 		var(--button-border-color1) var(--button-border-color1)
 }
+
+.MainNav button:hover {
+	cursor: pointer;
+	background-color: blue !important;
+	border-color: red yellow green green;
+}

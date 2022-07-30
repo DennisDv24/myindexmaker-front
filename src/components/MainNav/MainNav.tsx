@@ -6,7 +6,9 @@ export const MainNav = () => {
 		<nav className={navstyle.MainNav}>
 			<button>Index</button>
 			<button>Audit projects</button>
-			<button>About</button>
+			<a href="/about">
+				<button>About</button>
+			</a>
 			<button>Connect wallet</button>
 		</nav>
 	);

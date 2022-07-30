@@ -1,0 +1,66 @@
+
+.CenteredContent {
+	background: url('../../resources/diamond.svg') no-repeat center center;
+	height: 100vh;
+	text-align: center;
+	position: relative;
+}
+
+.Content {
+	margin: 0;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+  	transform: translate(-50%, -50%);
+}
+
+.Content p {
+	max-width: 300px;
+	margin: 0;
+	padding: 0;
+	display: inline-block;
+}
+
+.Content h1 {
+	font-family: 'Citizen';
+	font-size: 48px;
+	color: var(--heading-color);
+}
+
+.LinksSection { 
+	width: 100%;
+}
+
+.Links {
+	width: 130px;
+	margin: 0 auto;
+}
+
+.Links div {
+	width: 100%;
+	height: 130px;
+	margin: 65px auto;
+	background: url('../../resources/small-diamond.svg') no-repeat center center;
+	background-size: 130px;
+	position: relative;
+}
+
+.Links div span {
+	position: absolute;
+	top: 50%;
+	transform: translate(-50%, -50%)
+}
+
+.Links div:hover {
+	background: url('../../resources/diamond-hover.svg') no-repeat center center;
+	background-size: 130px;
+	cursor: pointer;
+}
+
+.Content a {
+	text-decoration: none;
+}
+
+.Content a h1:hover {
+	color: var(--button-border-color2)
+}
