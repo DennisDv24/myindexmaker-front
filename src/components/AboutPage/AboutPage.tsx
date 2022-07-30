@@ -1,14 +1,15 @@
-
 import aboutPageStyle from './AboutPage.module.css';
+
+import { Link } from '../Link/Link';
 
 export const AboutPage = () => {
 	return (
 		<>
 		<div className={aboutPageStyle.CenteredContent}>
 			<div className={aboutPageStyle.Content}>
-				<a href='/'>
+				<Link link='/'>
 					<h1>MyIndex Maker</h1>
-				</a>
+				</Link>
 				<p>
 					MyIndex Maker is a community driven 
 					Remilia derivatives gallery. The list,
