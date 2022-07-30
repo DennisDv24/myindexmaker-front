@@ -1,10 +1,15 @@
+@import url(./reset.css);
+
 :root {
 	--heading-color: #014;
 	--bg-color: #fdf6e3;
-	--button-color: var(--heading-color);
-	--button-border-color1: #541a62;
-	--button-border-color2: #724084;
-	--button-text-color: white;
+	--text-font-size-3xl: 4em;
+	--text-font-size-2xl: 3.5em;
+	--text-font-size-xl: 3em;
+	--text-font-size-l: 1.5em;
+	--text-font-size-md: 1em;
+	--text-font-size-s: 0.5em;
+	--text-font-size-xs: 0.25em;
 }
 
 html {

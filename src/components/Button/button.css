@@ -1,0 +1,35 @@
+.button {
+	--border-color1: #541a62;
+	--border-color2: #724084;
+	--text-color: white;
+	--bg-color: var(--heading-color);
+    --border-color: 
+        var(--border-color2) var(--border-color2)
+        var(--border-color1) var(--border-color1);
+    font-size: var(--text-font-size-l);
+	background-color: var(--bg-color);
+	color: var(--text-color);
+	border-color: var(--border-color);
+	border-width: 5px;
+	transition: 
+		background-color ease-in-out 0.4s, 
+		border-color ease-in-out 0.2s;
+}
+
+.button:hover {
+	--bg-color: blue;
+    --border-color: red yellow green green; 
+}
+
+.button:target {
+	--bg-color: blue;
+    --border-color: red yellow green green; 
+}
+
+.button_type__btn {
+
+}
+
+.button_type__a {
+
+}
