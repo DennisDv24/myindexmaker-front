@@ -1,15 +1,22 @@
+import { FC } from 'react';
+import { Button } from '../Button/Button'
+import { ButtonLink } from '../Button/ButtonLink'
 
-import navstyle from './MainNav.module.css' ;
+import './MainNav.css';
 
-export const MainNav = () => {
+export const MainNav: FC = () => {
 	return (
-		<nav className={navstyle.MainNav}>
-			<button>Index</button>
-			<button>Audit projects</button>
-			<a href="/about">
-				<button>About</button>
-			</a>
-			<button>Connect wallet</button>
+		<nav className='nav-container'>
+			<ButtonLink value='Index' as='button' link='/' />
+			<ButtonLink value='Audit projects' as='button' link='/' />
+			<ButtonLink value='About' as='button' link='/about' />
+			<Button
+				value='Connect wallet' 
+				as='button'
+				otherProps={{
+					onClick: () => {console.log('milady?')}
+				}}
+			/>
 		</nav>
 	);
 }
