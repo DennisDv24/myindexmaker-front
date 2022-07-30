@@ -37,6 +37,7 @@ export const DerivCollections = () => {
 				</th>
 			</tr>
 			<DerivCard	
+				first
 				name='Milady Maker'
 				img='https://lh3.googleusercontent.com/a_frplnavZA9g4vN3SexO5rrtaBX_cBTaJYcgrPtwQIqPhzgzUendQxiwUdr51CGPE2QyPEa1DHnkW1wLrHAv5DgfC3BP-CWpFq6BA=s0'
 				volume='10'
@@ -83,6 +84,7 @@ export const DerivCollections = () => {
 				supply='300'
 				tokensPerWallet='3'
 				daoRank='4'
+				last
 			/>
 		</table>
 	)

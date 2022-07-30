@@ -16,13 +16,14 @@
 
 .CardImg {
 	width: 10%;
-	padding: 5px 10px
+	padding: 5px 13px
 }
 
 .Card img {
 	width: 100%;
 	aspect-ratio: 1/1;
 	object-fit: cover;
+	border-radius: 100%;
 }
 
 .Card td {
@@ -68,4 +69,12 @@
 	.TableHeading {
 		font-size: 10px;
 	}
+}
+
+#first td {
+	padding-top: 15px;
+}
+
+#last td {
+	padding-bottom: 20px;
 }

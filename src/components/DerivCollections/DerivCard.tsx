@@ -8,39 +8,45 @@ export const DerivCard: FC<{
 	volume: string,
 	supply: string,
 	tokensPerWallet: string,
-	daoRank: string
-}> = ({ name, img, volume, supply, tokensPerWallet, daoRank }) => {
+	daoRank: string,
+	style?: any,
+	first?: boolean,
+	last?: boolean
+}> = ({ name, img, volume, supply, tokensPerWallet, daoRank, style, first, last }) => {
 	return (
 		<tr 
 			//className={
 				//`${cardStyle.Card.toString()} ${cardStyle.IsNotInfo.toString()}`
 			//}
 			className={cardStyle.Card}
+			id={first ? cardStyle['first'] : last ? cardStyle['last'] : ''}
 		>
-			<th className={cardStyle.CardImg}>
+			<td 
+				className={cardStyle.CardImg}
+			>
 				<img src={img} alt="" />
-			</th>
-			<th className={cardStyle.CardName}>
+			</td>
+			<td className={cardStyle.CardName}>
 				{name}
-			</th>
-			<th className={cardStyle.Data}>
+			</td>
+			<td className={cardStyle.Data}>
 			{volume}
-			</th>
-			<th className={cardStyle.Data}>
+			</td>
+			<td className={cardStyle.Data}>
 			{supply}
-			</th>
-			<th className={cardStyle.Data}>
+			</td>
+			<td className={cardStyle.Data}>
 			{tokensPerWallet}
-			</th>
-			<th className={cardStyle.Data}>
+			</td>
+			<td className={cardStyle.Data}>
 			{daoRank}
-			</th>
-			<th className={cardStyle.Data}>
+			</td>
+			<td className={cardStyle.Data}>
 			{8}
-			</th>
-			<th className={cardStyle.Data}>
+			</td>
+			<td className={cardStyle.Data}>
 			{13}
-			</th>
+			</td>
 		</tr>
 	)	
 }
