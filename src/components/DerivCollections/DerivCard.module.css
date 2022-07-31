@@ -16,7 +16,7 @@
 
 .CardImg {
 	width: 10%;
-	padding: 5px 13px
+	padding: 1% 1%;
 }
 
 .Card img {
@@ -24,32 +24,66 @@
 	aspect-ratio: 1/1;
 	object-fit: cover;
 	border-radius: 100%;
+	margin-left: 30%;
+	margin-top: 15%;
 }
 
 .Card td {
-	border: 3px solid;
-	border: 0;
 }
 .Card th {
-	border: 0
+	border: 0;
 }
 
 .CardName {
+	font-size: 22px;
+	font-family: 'Citizen';
+	font-weight: 800;
 	width: 30%;
-	font-size: 32px;
+	color: var(--heading-color);
+	
+}
+
+.CardName:hover{
+	color: blue;
+	cursor: pointer;
+}
+
+.LogoText {
+	font-weight: 1000;
+	padding-right: 25%;
+}
+
+.Amount{
+	display: flex;
+	flex-direction: row;
+	justify-content:flex-end;
+	width: 100%;
+}
+
+.Vol {
+	padding-right: 5%;
 }
 
 .Data {
-	font-size: 20px;
+	font-size: 16px;
 	width: 10%
 }
 
 @media (max-width: 1439px) {
 	.CardName {
-		font-size: 28px;
+		font-size: 20px;
 	}
 	.TableHeading {
 		font-size: 12px;
+	}
+	.Amount {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		text-align: center;
+		height: 80px;
+		width: 150px;
+		justify-content: center;
 	}
 }
 
@@ -69,9 +103,15 @@
 	.TableHeading {
 		font-size: 10px;
 	}
+}
+
+@media (max-width: 500px) {
+	.CardName {
+		display: none;
+	}
+
 	.CardImg {
-		width: 10%;
-		padding: 0;
+		width: 100%;
 	}
 }
 
