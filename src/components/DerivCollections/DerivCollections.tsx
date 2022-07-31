@@ -17,30 +17,46 @@ export const DerivCollections: React.FC = () => {
 		}
 	}, []);
 
-	const retrieveCollection = (collection: string) => {
-		CollectionService.getCollection(collection) // ---> '../../services' & '../../utils'
-		  .then((response: any) => {
-			const stats = response.data.collection.stats
-			const volume = (Math.round(parseInt(stats.total_volume) * 100) / 100).toString()
-			const supply = stats.total_supply
-			const tokensPerWallet = (Math.round(supply / stats.num_owners * 10) / 10).toString()
-			const imgUrl = response.data.collection.image_url
-
-			// These if statements are to control data that isn't yet retrievable
-			var daoRank:string = ''
-			if (collection == "milady"){daoRank = "1"}
-			if (collection == "banners-nft"){daoRank = "2"}
-			if (collection == "miladyaura"){daoRank = "3"}
-			
-			let c = new Collection({name: collection, supply: supply, volume: volume, tokensPerWallet: tokensPerWallet, img: imgUrl, daoRank: daoRank})
-			setCollections(oldArray => [...oldArray, c])
-
-		  })
-		  .catch((e: Error) => {
-			console.log(e);
-		  });
+	const retrieveCollection = (contract: string) => {
+		CollectionService.getContract(contract) // ---> '../../services' & '../../utils'
+			.then((response: any) => {
+				const slug = response.data.collection.slug
+				retrieveData(slug)
+			})
+			.catch((e: Error) => console.log(e))
 	  };
 
+	function retrieveData(slug: string){
+		CollectionService.getCollection(slug) // ---> '../../services' & '../../utils'
+		.then((response: any) => {
+		  const stats = response.data.collection.stats
+		  const volume = (Math.round(parseInt(stats.total_volume) * 100) / 100).toString()
+		  const supply = stats.total_supply
+		  const tokensPerWallet = (Math.round(supply / stats.num_owners * 10) / 10).toString()
+		  const name = response.data.collection.name
+		  const imgUrl = response.data.collection.image_url
+
+		  // These if statements are to control data that isn't yet retrievable
+		  var daoRank:string = ''
+		  if (slug === "milady"){daoRank = "1"}
+		  if (slug === "banners-nft"){daoRank = "2"}
+		  if (slug === "miladyaura"){daoRank = "3"}
+		  if(daoRank === ''){daoRank = "999"}
+
+		  setCollections(oldArray => [...oldArray, new Collection({
+			  name: name, 
+			  supply: supply, 
+			  volume: volume, 
+			  tokensPerWallet: tokensPerWallet, 
+			  img: imgUrl, 
+			  daoRank: daoRank
+		  })])
+
+		})
+		.catch((e: Error) => {
+		  console.log(e);
+		});
+	}
 
 	function sortCollection(arr:Array<Collection>){
 		arr.sort((n1,n2) => {

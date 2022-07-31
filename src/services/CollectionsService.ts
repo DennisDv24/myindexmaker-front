@@ -1,8 +1,12 @@
 import openSea from "../utils/collectionApi";
-const getCollection = (collection: string) => {
-  return openSea.get(`/${collection}`);
+const getCollection = (slug: string) => {
+  return openSea.get(`collection/${slug}`);
 };
+const getContract = (slug: string) => {
+    return openSea.get(`asset_contract/${slug}`);
+  };
 const CollectionService = {
   getCollection,
+  getContract
 };
 export default CollectionService;
