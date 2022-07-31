@@ -24,17 +24,13 @@ export const DerivCollections: React.FC = () => {
 			const volume = (Math.round(parseInt(stats.total_volume) * 100) / 100).toString()
 			const supply = stats.total_supply
 			const tokensPerWallet = (Math.round(supply / stats.num_owners * 10) / 10).toString()
-			let imgUrl = response.data.collection.image_url
-			let daoRank:string = ''
+			const imgUrl = response.data.collection.image_url
 
 			// These if statements are to control data that isn't yet retrievable
-			if (collection == "milady"){
-				daoRank = "1"
-			} else if (collection == "banners-nft"){
-				daoRank = "2"
-			} else if (collection == "miladyaura"){
-				daoRank = "3"
-			}
+			var daoRank:string = ''
+			if (collection == "milady"){daoRank = "1"}
+			if (collection == "banners-nft"){daoRank = "2"}
+			if (collection == "miladyaura"){daoRank = "3"}
 			
 			let c = new Collection({name: collection, supply: supply, volume: volume, tokensPerWallet: tokensPerWallet, img: imgUrl, daoRank: daoRank})
 			setCollections(oldArray => [...oldArray, c])
