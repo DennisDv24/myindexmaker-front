@@ -1,11 +1,62 @@
-
+import React, { useState, ChangeEvent, useEffect } from "react";
 import { DerivCard } from './DerivCard';
+import CollectionService from '../../services/CollectionsService'
 import { FaSortAmountDownAlt, FaSortAmountUpAlt } from 'react-icons/fa';
+import { constants } from "./constants";
 
 import derivStyle from './DerivCard.module.css';
+import { Collection, emptyCollection, emptyList } from "./initObjs";
+
+export const DerivCollections: React.FC = () => {
+
+	const [collections, setCollections] = useState(emptyList)
+
+	useEffect(() => {
+		for(let i=0; i<constants.collectionNames.length; i++){
+			retrieveCollection(constants.collectionNames[i])
+		}
+	}, []);
+
+	const retrieveCollection = (collection: string) => {
+		CollectionService.getCollection(collection) // ---> '../../services' & '../../utils'
+		  .then((response: any) => {
+			const stats = response.data.collection.stats
+			const volume = (Math.round(parseInt(stats.total_volume) * 100) / 100).toString()
+			const supply = stats.total_supply
+			const tokensPerWallet = (Math.round(supply / stats.num_owners * 10) / 10).toString()
+			const imgUrl = response.data.collection.image_url
+
+			// These if statements are to control data that isn't yet retrievable
+			var daoRank:string = ''
+			if (collection == "milady"){daoRank = "1"}
+			if (collection == "banners-nft"){daoRank = "2"}
+			if (collection == "miladyaura"){daoRank = "3"}
+			
+			let c = new Collection({name: collection, supply: supply, volume: volume, tokensPerWallet: tokensPerWallet, img: imgUrl, daoRank: daoRank})
+			setCollections(oldArray => [...oldArray, c])
+
+		  })
+		  .catch((e: Error) => {
+			console.log(e);
+		  });
+	  };
 
 
-export const DerivCollections = () => {
+	function sortCollection(arr:Array<Collection>){
+		arr.sort((n1,n2) => {
+			if (parseInt(n1.daoRank) > parseInt(n2.daoRank)) {
+				return 1;
+			}
+		
+			if (parseInt(n1.daoRank) < parseInt(n2.daoRank)) {
+				return -1;
+			}
+		
+			return 0;
+		})
+		return arr
+	}
+
 	return (
 		<table className={derivStyle.DerivTable}>
 			<tr className={derivStyle.TableHeading}>
@@ -21,7 +72,7 @@ export const DerivCollections = () => {
 				</th>
 				<th>
 					<FaSortAmountUpAlt />
-					Tokens Per Wallet mean
+					Avg Wallet
 				</th>
 				<th>
 					<FaSortAmountDownAlt />
@@ -36,30 +87,18 @@ export const DerivCollections = () => {
 					Extra ipsum
 				</th>
 			</tr>
+			{sortCollection(collections).map(x => {
+			return (
+				<DerivCard name={x.name} volume={x.volume} supply={x.supply} tokensPerWallet={x.tokensPerWallet} img={x.img} daoRank={x.daoRank}/>
+			)
+			})}
 			<DerivCard	
-				first
-				name='Milady Maker'
-				img='https://lh3.googleusercontent.com/a_frplnavZA9g4vN3SexO5rrtaBX_cBTaJYcgrPtwQIqPhzgzUendQxiwUdr51CGPE2QyPEa1DHnkW1wLrHAv5DgfC3BP-CWpFq6BA=s0'
+				name='milAIdy maker'
+				img='https://lh3.googleusercontent.com/rybJRSagcBB-FhWp2pRRFdOKsypJ1n2gqYIpMDD8QLztqh64cjo1FNXKwty4qYNWxWHPaSmxagiAE1MYR3vtPvAR-psaRVNjYLxSWA=s0'
 				volume='10'
 				supply='300'
 				tokensPerWallet='3'
-				daoRank='4'
-			/>
-			<DerivCard	
-				name='Banner NFTs'
-				img='https://openseauserdata.com/files/683f01134665f3cd1458ae4a46e32990.png'
-				volume='10'
-				supply='300'
-				tokensPerWallet='3'
-				daoRank='4'
-			/>
-			<DerivCard	
-				name='Auras'
-				img='https://lh3.googleusercontent.com/RcCll0PWAnUGr1oYk250Mm0fAW5u0-pkEzOaxSHm6qiHotaqjVtePqkf0CD6v2ef1uxhrqW6KZI3ZYqfURKSiecnSd2ofngQNepxbw=s0'
-				volume='10'
-				supply='300'
-				tokensPerWallet='3'
-				daoRank='4'
+				daoRank=''
 			/>
 			<DerivCard	
 				name='milAIdy maker'
@@ -67,7 +106,7 @@ export const DerivCollections = () => {
 				volume='10'
 				supply='300'
 				tokensPerWallet='3'
-				daoRank='4'
+				daoRank=''
 			/>
 			<DerivCard	
 				name='milAIdy maker'
@@ -75,15 +114,7 @@ export const DerivCollections = () => {
 				volume='10'
 				supply='300'
 				tokensPerWallet='3'
-				daoRank='4'
-			/>
-			<DerivCard	
-				name='milAIdy maker'
-				img='https://lh3.googleusercontent.com/rybJRSagcBB-FhWp2pRRFdOKsypJ1n2gqYIpMDD8QLztqh64cjo1FNXKwty4qYNWxWHPaSmxagiAE1MYR3vtPvAR-psaRVNjYLxSWA=s0'
-				volume='10'
-				supply='300'
-				tokensPerWallet='3'
-				daoRank='4'
+				daoRank=''
 				last
 			/>
 		</table>
