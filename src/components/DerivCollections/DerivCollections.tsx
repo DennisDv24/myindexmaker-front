@@ -30,7 +30,6 @@ export const DerivCollections: React.FC = () => {
 			const tokensPerWallet = (Math.round(supply / response.data.collection.stats.num_owners * 10) / 10).toString()
 			switch(collection) {
 				case "milady": {
-					// if we figure out better way to initialize state, this can be reduced to 1 line per switch case.
 					setMiladyCollection({supply: supply, volume: volStr, tokensPerWallet: tokensPerWallet});
 					break
 				}
