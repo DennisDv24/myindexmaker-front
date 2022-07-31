@@ -1,15 +1,15 @@
 import { FC } from 'react';
-import { Button } from '../Button/Button'
-import { ButtonLink } from '../Button/ButtonLink'
+import { Button } from '../../../components/Button/Button'
+import { ButtonLink } from '../../../components/Button/ButtonLink'
 
 import './MainNav.css';
 
 export const MainNav: FC = () => {
 	return (
 		<nav className='nav-container'>
-			<ButtonLink value='Index' as='button' link='/' />
-			<ButtonLink value='Audit projects' as='button' link='/' />
-			<ButtonLink value='About' as='button' link='/about' />
+			<ButtonLink value='Index' link='/' />
+			<ButtonLink value='Audit projects'  link='/' />
+			<ButtonLink value='About' link='/about' />
 			<Button
 				value='Connect wallet' 
 				as='button'

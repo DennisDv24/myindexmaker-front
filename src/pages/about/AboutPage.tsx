@@ -1,6 +1,6 @@
 import aboutPageStyle from './AboutPage.module.css';
 
-import { Link } from '../Link/Link';
+import { Link } from '../../components/Link/Link';
 
 export const AboutPage = () => {
 	return (

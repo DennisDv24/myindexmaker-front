@@ -1,10 +1,3 @@
-
-@font-face {
-	font-family: "Citizen";
-	src: url("./../../resources/medio.otf");
-	font-stretch: 25%;
-}
-
 .Content {
 	position: sticky;
 	background-color: var(--bg-color);
@@ -72,4 +65,22 @@
 		width: 88%;
 	}
 
+}
+
+.home {
+	height: inherit;
+	width: inherit;
+	display: flex;
+	justify-content: center;
+}
+
+.card {
+	text-align: center; /* Remove */
+	position: relative;
+	width: 80vw;
+	background-color: var(--bg-color);
+	border: 15px double var(--bg-color);
+	background-clip: padding-box;
+	box-shadow: -1rem 1rem #00000033;
+	outline: 3px solid black;
 }
