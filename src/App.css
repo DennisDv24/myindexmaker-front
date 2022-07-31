@@ -1,15 +1,11 @@
-@import url(./reset.css);
+@import url(./styles/reset.css);
+@import url(./styles/colors.css);
+@import url(./styles/fonts.css);
+@import url(./styles/text.css);
 
 :root {
 	--heading-color: #014;
 	--bg-color: #fdf6e3;
-	--text-font-size-3xl: 4em;
-	--text-font-size-2xl: 3.5em;
-	--text-font-size-xl: 3em;
-	--text-font-size-l: 1.5em;
-	--text-font-size-md: 1em;
-	--text-font-size-s: 0.5em;
-	--text-font-size-xs: 0.25em;
 }
 
 html {
@@ -21,49 +17,36 @@ html {
 	overflow: overlay;
 }
 
-.App {
-  	text-align: center;
+.container {
+	width: 100vw;
+	height: 100vh;
 }
 
-/* Scrollbar styling */
-/*
-::-webkit-scrollbar {
-  	width: 40px;
-}
-::-webkit-scrollbar-track {
-  	background: none;
-	border: 4px solid;
-	border-color: red;
-}
-::-webkit-scrollbar-thumb {
-  	background: var(--bg-color);
-	border: 3px solid;
-	border-color: var(--button-border-color2);
-	margin: 3px
-
+/* .scroller {
+	--scroller-width: 0.2em;
+	scrollbar-width: var(--scroller-width);
 }
 
-::-webkit-scrollbar-thumb:hover {
-  	background: var(--heading-color);
-}
-*/
-
-::-webkit-scrollbar {
-    width: 30px;
+.scroller--theme-custom {
+	--scroller-width: 30px;
 }
 
-::-webkit-scrollbar-track {
-    border: solid 10px transparent;
+.scroller--theme-custom::-webkit-scrollbar {
+	--scroller-width: 30px;
 }
 
-::-webkit-scrollbar-thumb {
-    box-shadow: inset 0 0 10px 20px var(--button-border-color1);
+.scroller--theme-custom::-webkit-scrollbar-track {
+	border: solid 10px transparent;
+}
+
+.scroller--theme-custom::-webkit-scrollbar-thumb {
+    box-shadow: inset 0 0 10px 20px var(--color-purple-600);
     border: solid 10px transparent;
 	border-radius: 15px;
 }
-::-webkit-scrollbar-thumb:hover {
+.scroller--theme-custom::-webkit-scrollbar-thumb:hover {
     box-shadow: inset 0 0 10px 20px #00000077
 }
-
+ */
 
 
