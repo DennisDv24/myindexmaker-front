@@ -8,22 +8,13 @@ import derivStyle from './DerivCard.module.css';
 
 export const DerivCollections: React.FC = () => {
 
-
 	//can definitely do these state initializations better, probably with an interface
 	//could look something like: milady, setMilady = useState({}) 
 	// -- likely need some kind of interface/type for each collection to hold all of the data.
-	const [miladySupply, setMiladySupply] = useState("");
-	const [miladyVolume, setMiladyVolume] = useState("");
-	const [miladyNumTokens, setMiladyNumTokens] = useState("");
+	const [miladyCollection, setMiladyCollection] = useState({supply: '', volume: '', tokensPerWallet: ''});
+	const [bannerCollection, setBannerCollection] = useState({supply: '', volume: '', tokensPerWallet: ''});
+	const [auraCollection, setAuraCollection] = useState({supply: '', volume: '', tokensPerWallet: ''});
 
-	const [bannerSupply, setBannerSupply] = useState("");
-	const [bannerVolume, setBannerVolume] = useState("");
-	const [bannerNumTokens, setBannerNumTokens] = useState("");
-
-	const [auraSupply, setAuraSupply] = useState("");
-	const [auraVolume, setAuraVolume] = useState("");
-	const [auraNumTokens, setAuraNumTokens] = useState("");
-	
 	useEffect(() => {
 		retrieveCollection("milady");
 		retrieveCollection("banners-nft");
@@ -36,25 +27,19 @@ export const DerivCollections: React.FC = () => {
 			const volume = parseInt(response.data.collection.stats.total_volume)
 			const volStr = (Math.round(volume * 100) / 100).toString()
 			const supply = response.data.collection.stats.total_supply
-			const numTokensPerWallet = (Math.round(supply / response.data.collection.stats.num_owners * 10) / 10).toString()
+			const tokensPerWallet = (Math.round(supply / response.data.collection.stats.num_owners * 10) / 10).toString()
 			switch(collection) {
 				case "milady": {
 					// if we figure out better way to initialize state, this can be reduced to 1 line per switch case.
-					setMiladySupply(supply);
-					setMiladyVolume(volStr);
-					setMiladyNumTokens(numTokensPerWallet)
+					setMiladyCollection({supply: supply, volume: volStr, tokensPerWallet: tokensPerWallet});
 					break
 				}
 				case "banners-nft": {
-					setBannerSupply(supply);
-					setBannerVolume(volStr);
-					setBannerNumTokens(numTokensPerWallet);
+					setBannerCollection({supply: supply, volume: volStr, tokensPerWallet: tokensPerWallet});
 					break
 				}
 				case "miladyaura": {
-					setAuraSupply(supply);
-					setAuraVolume(volStr);	
-					setAuraNumTokens(numTokensPerWallet);
+					setAuraCollection({supply: supply, volume: volStr, tokensPerWallet: tokensPerWallet});
 				}
 			}
 		  })
@@ -96,25 +81,25 @@ export const DerivCollections: React.FC = () => {
 				first
 				name='Milady Maker'
 				img='https://lh3.googleusercontent.com/a_frplnavZA9g4vN3SexO5rrtaBX_cBTaJYcgrPtwQIqPhzgzUendQxiwUdr51CGPE2QyPEa1DHnkW1wLrHAv5DgfC3BP-CWpFq6BA=s0'
-				volume={miladyVolume + " Ξ"}
-				supply={miladySupply}
-				tokensPerWallet={miladyNumTokens}
+				volume={miladyCollection.volume + " Ξ"}
+				supply={miladyCollection.supply}
+				tokensPerWallet={miladyCollection.tokensPerWallet}
 				daoRank=''
 			/>
 			<DerivCard	
 				name='Banner NFTs'
 				img='https://openseauserdata.com/files/683f01134665f3cd1458ae4a46e32990.png'
-				volume={bannerVolume + " Ξ"}
-				supply={bannerSupply}
-				tokensPerWallet={bannerNumTokens}
+				volume={bannerCollection.volume + " Ξ"}
+				supply={bannerCollection.supply}
+				tokensPerWallet={bannerCollection.tokensPerWallet}
 				daoRank=''
 			/>
 			<DerivCard	
 				name='Auras'
 				img='https://lh3.googleusercontent.com/RcCll0PWAnUGr1oYk250Mm0fAW5u0-pkEzOaxSHm6qiHotaqjVtePqkf0CD6v2ef1uxhrqW6KZI3ZYqfURKSiecnSd2ofngQNepxbw=s0'
-				volume={auraVolume + " Ξ"}
-				supply={auraSupply}
-				tokensPerWallet={auraNumTokens}
+				volume={auraCollection.volume + " Ξ"}
+				supply={auraCollection.supply}
+				tokensPerWallet={auraCollection.tokensPerWallet}
 				daoRank=''
 			/>
 			<DerivCard	
