@@ -18,34 +18,29 @@ export const DerivCollections: React.FC = () => {
 	}, []);
 
 	const retrieveCollection = (collection: string) => {
-
-		let c = new Collection(emptyCollection)
 		CollectionService.getCollection(collection) // ---> '../../services' & '../../utils'
 		  .then((response: any) => {
 			const stats = response.data.collection.stats
 			const volume = (Math.round(parseInt(stats.total_volume) * 100) / 100).toString()
 			const supply = stats.total_supply
 			const tokensPerWallet = (Math.round(supply / stats.num_owners * 10) / 10).toString()
-			const imgUrl = response.data.collection.featured_image_url
-			
-			switch(collection) {
-				case "milady": {
-					c = {name: "Milady Maker", supply: supply, volume: volume, tokensPerWallet: tokensPerWallet, img: imgUrl, daoRank: "1"}
-					setCollections(oldArray => [...oldArray, c])
-					return
-				}
-				case "banners-nft": {
-					let bannerImg = "https://openseauserdata.com/files/683f01134665f3cd1458ae4a46e32990.png"
-					c = ({name: "Banners NFT", supply: supply, volume: volume, tokensPerWallet: tokensPerWallet, img: bannerImg, daoRank: "2"});
-					setCollections(oldArray => [...oldArray, c])
-					return
-				}
-				case "miladyaura": {
-					let auraImg = "https://lh3.googleusercontent.com/RcCll0PWAnUGr1oYk250Mm0fAW5u0-pkEzOaxSHm6qiHotaqjVtePqkf0CD6v2ef1uxhrqW6KZI3ZYqfURKSiecnSd2ofngQNepxbw=s0"
-					c = ({name: "Auras", supply: supply, volume: volume, tokensPerWallet: tokensPerWallet, img: auraImg, daoRank: "3"});
-					setCollections(oldArray => [...oldArray, c])
-				}
+			let imgUrl = response.data.collection.featured_image_url
+			let daoRank:string = ''
+
+			// These if statements are to control data that isn't yet retrievable
+			if (collection == "milady"){
+				daoRank = "1"
+			} else if (collection == "banners-nft"){
+				imgUrl = "https://openseauserdata.com/files/683f01134665f3cd1458ae4a46e32990.png"; 
+				daoRank = "2"
+			} else if (collection == "miladyaura"){
+				imgUrl = "https://lh3.googleusercontent.com/RcCll0PWAnUGr1oYk250Mm0fAW5u0-pkEzOaxSHm6qiHotaqjVtePqkf0CD6v2ef1uxhrqW6KZI3ZYqfURKSiecnSd2ofngQNepxbw=s0"; 
+				daoRank = "3"
 			}
+			
+			let c = new Collection({name: collection, supply: supply, volume: volume, tokensPerWallet: tokensPerWallet, img: imgUrl, daoRank: daoRank})
+			setCollections(oldArray => [...oldArray, c])
+
 		  })
 		  .catch((e: Error) => {
 			console.log(e);
@@ -100,7 +95,7 @@ export const DerivCollections: React.FC = () => {
 			</tr>
 			{sortCollection(collections).map(x => {
 			return (
-				<DerivCard name={x.name} volume={x.volume} supply={x.supply} tokensPerWallet={x.tokensPerWallet} img={x.img} daoRank=""/>
+				<DerivCard name={x.name} volume={x.volume} supply={x.supply} tokensPerWallet={x.tokensPerWallet} img={x.img} daoRank={x.daoRank}/>
 			)
 			})}
 			<DerivCard	
