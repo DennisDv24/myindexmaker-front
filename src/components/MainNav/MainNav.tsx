@@ -8,7 +8,7 @@ export const MainNav: FC = () => {
 	return (
 		<nav className='nav-container'>
 			<ButtonLink value='Index' as='button' link='/' />
-			<ButtonLink value='Audit projects' as='button' link='/' />
+			<ButtonLink value='Proposals' as='button' link='/' />
 			<ButtonLink value='About' as='button' link='/about' />
 			<Button
 				value='Connect wallet' 

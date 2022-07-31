@@ -7,7 +7,7 @@ import { constants } from "./constants";
 import derivStyle from './DerivCard.module.css';
 import { Collection, emptyList } from "./initObjs";
 import helpers from "./helpers";
-import e from "express";
+import { jSXElement } from "@babel/types";
 
 export const DerivCollections: React.FC = () => {
 
@@ -64,12 +64,15 @@ export const DerivCollections: React.FC = () => {
 	const [button, setButton] = useState({bool: false, category: 4})
 
 	const onClick = (e: React.MouseEvent<HTMLElement>, category: number) => {
+		//category = column on index table
+		console.log("sorting")
 		setButton({bool: !button.bool, category: category})
 	}
 
 	function sortCollections(arr:Array<Collection>, category=button.category){
-		// This sorts by DAO rank, but can put whatever logic here we want
-		// Likely want something a bit more compact here, will pick it up later.
+		// helper functions use the category in a locally-defined dictionary
+		// this allows us to target what we want to sort by.
+		// maybe a better way of doing this, idk, but this seems to work pretty well.
 		if(button.bool === true){
 			arr = helpers.sorts(arr, category)
 			return arr
@@ -79,15 +82,18 @@ export const DerivCollections: React.FC = () => {
 		}
 	}
 
-	const categories = ["Name", "Volume", "Supply", "Avg Wallet", "DAO Rank", "Lorem", "Ipsum"]
+	const categories = ["Name", "Volume", "Supply", "Avg Wallet", "DAO Rank", "Lorem", "Ipsum"] // columns
 
+	const boldText: React.CSSProperties = {
+		fontWeight: "bold"
+	};
 	return (
 		<table className={derivStyle.DerivTable}>
 			<tr className={derivStyle.TableHeading}>
 				<th></th>
 				{categories.map(x => {
-					if ((categories.indexOf(x) >= 1) && categories.indexOf(x) <= 4){
-						let idx = categories.indexOf(x)
+					if ((categories.indexOf(x) >= 1) && categories.indexOf(x) <= 4){ // we only want columns Volume through DAO Rank
+						let idx = categories.indexOf(x) // used to identify category --> onClick(event, category)
 						return (
 							<th onClick={(e) => onClick(e, idx)}>
 								<FaSortAmountUpAlt/>
@@ -101,40 +107,49 @@ export const DerivCollections: React.FC = () => {
 			</tr>
 			{
 			sortCollections(collections).map(x => {
-			return (
-				<DerivCard
-					name={x.name} 
-					volume={x.volume} 
-					supply={x.supply} 
-					tokensPerWallet={x.tokensPerWallet} 
-					img={x.img} 
-					daoRank={x.daoRank}
-				/>
-			)
+				return (
+					<DerivCard
+						name={x.name} 
+						volume={x.volume} 
+						supply={x.supply} 
+						tokensPerWallet={x.tokensPerWallet} 
+						img={x.img} 
+						daoRank={x.daoRank}
+						lorem=''
+						ipsum=''
+					/>
+				)
 			})}
 			<DerivCard	
-				name='Remilia Ipsum'
+				name='Remilia 君の Ipsum'
 				img='https://lh3.googleusercontent.com/rybJRSagcBB-FhWp2pRRFdOKsypJ1n2gqYIpMDD8QLztqh64cjo1FNXKwty4qYNWxWHPaSmxagiAE1MYR3vtPvAR-psaRVNjYLxSWA=s0'
-				volume='10'
-				supply='300'
-				tokensPerWallet='3'
-				daoRank=''
+				volume='導関数'
+				supply='行く'
+				tokensPerWallet='ここ'
+				daoRank='77'
+				lorem='77'
+				ipsum="!"
+				
 			/>
 			<DerivCard	
-				name='Remilia Ipsum'
+				name='Remilia 君の Ipsum'
 				img='https://lh3.googleusercontent.com/rybJRSagcBB-FhWp2pRRFdOKsypJ1n2gqYIpMDD8QLztqh64cjo1FNXKwty4qYNWxWHPaSmxagiAE1MYR3vtPvAR-psaRVNjYLxSWA=s0'
-				volume='10'
-				supply='300'
-				tokensPerWallet='3'
-				daoRank=''
+				volume='導関数'
+				supply='行く'
+				tokensPerWallet='ここ'
+				daoRank='77'
+				lorem='77'
+				ipsum="!"
 			/>
 			<DerivCard	
-				name='Remilia Ipsum'
+				name='Remilia 君の Ipsum'
 				img='https://lh3.googleusercontent.com/rybJRSagcBB-FhWp2pRRFdOKsypJ1n2gqYIpMDD8QLztqh64cjo1FNXKwty4qYNWxWHPaSmxagiAE1MYR3vtPvAR-psaRVNjYLxSWA=s0'
-				volume='10'
-				supply='300'
-				tokensPerWallet='3'
-				daoRank=''
+				volume='導関数'
+				supply='行く'
+				tokensPerWallet='ここ'
+				daoRank='77'
+				lorem='77'
+				ipsum="!"
 				last
 			/>
 		</table>

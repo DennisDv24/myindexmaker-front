@@ -9,10 +9,12 @@ export const DerivCard: FC<{
 	supply: string,
 	tokensPerWallet: string,
 	daoRank: string,
+	lorem: string,
+	ipsum: string,
 	style?: any,
 	first?: boolean,
 	last?: boolean
-}> = ({ name, img, volume, supply, tokensPerWallet, daoRank, style, first, last }) => {
+}> = ({ name, img, volume, supply, tokensPerWallet, daoRank, lorem, ipsum, style, first, last }) => {
 	return (
 		<tr 
 			//className={
@@ -29,8 +31,8 @@ export const DerivCard: FC<{
 			<td className={cardStyle.CardName}>
 				{name}
 			</td>
-			<td className={cardStyle.Data}>
-			{volume}
+			<td>
+				<div className={cardStyle.Amount}><div className={cardStyle.Vol}>{volume}</div><span className={cardStyle.LogoText}>{"Ξ"}</span></div>
 			</td>
 			<td className={cardStyle.Data}>
 			{supply}
@@ -42,10 +44,10 @@ export const DerivCard: FC<{
 			{daoRank}
 			</td>
 			<td className={cardStyle.Data}>
-			{8}
+			{lorem}
 			</td>
 			<td className={cardStyle.Data}>
-			{13}
+			{ipsum}
 			</td>
 		</tr>
 	)	
