@@ -1,0 +1,120 @@
+.Content {
+	position: sticky;
+	background-color: var(--bg-color);
+	width: 60%; /* 100 - 20vw*2 */
+	margin: 10vh auto;
+	justify-content: center;
+	border-style: double;
+	border-width: 15px;
+	border-color: var(--bg-color);
+	background-clip: padding-box;
+}
+.Content:after {
+  	content: " ";
+  	position: absolute;
+  	z-index: -1;
+  	top: -18px;
+  	left: -18px;
+  	right: -18px;
+  	bottom: -18px;
+	border-style: solid;
+	border-width: 3px;
+	border-color: var(--button-border-color2);
+	background-clip: padding-box;
+  	box-shadow: -15px 15px #00000033;
+}
+
+.MainHeading {
+	margin: 30px 0;
+}
+
+.Content h1 {
+	font-family: 'Citizen';
+	font-size: 64px;
+	padding: 0;
+	margin: 0;
+	color: var(--heading-color);
+}
+
+.Content h2 {
+	font-size: 32px;
+	margin: 0;
+}
+
+.Content p {
+	font-size: 28px;
+	margin: 20px;
+	padding: 0;
+}
+
+
+@media (max-width: 1439px) {
+	.Content {
+		width: 70%
+	}
+}
+
+@media (max-width: 1024px) {
+	.Content {
+		width: 80%
+	}
+}
+
+@media (max-width: 768px) {
+	.Content {
+		width: 88%;
+	}
+
+}
+
+.home {
+	height: inherit;
+	width: inherit;
+	display: flex;
+	justify-content: center;
+    align-items: center;
+}
+
+.card-wrapper {
+	width: 80vw;
+    height: 90vh;
+	background-color: var(--bg-color);
+	border: 15px double var(--bg-color);
+	background-clip: padding-box;
+	box-shadow: -1rem 1rem #00000033;
+	outline: 3px solid black;
+	padding: 10px;
+}
+
+.card {
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: auto 1fr 1fr;
+	grid-gap: 1em;
+}
+
+.card__header{
+    text-align: center;
+    height: inherit;
+    width: inherit;
+    align-items: center;
+    justify-content: center;
+}
+
+.card__header h1 {
+	margin-bottom: 1em;
+}
+
+.card__navbar {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 10px 0px;
+	align-items: center;
+}
+
+.card__table {
+	overflow-y: scroll;
+}
