@@ -5,7 +5,9 @@ import { FaSortAmountDownAlt, FaSortAmountUpAlt } from 'react-icons/fa';
 import { constants } from "./constants";
 
 import derivStyle from './DerivCard.module.css';
-import { Collection, emptyCollection, emptyList } from "./initObjs";
+import { Collection, emptyList } from "./initObjs";
+import helpers from "./helpers";
+import e from "express";
 
 export const DerivCollections: React.FC = () => {
 
@@ -59,22 +61,22 @@ export const DerivCollections: React.FC = () => {
 		});
 	}
 
-	function sortCollections(arr:Array<Collection>){
+	const [button, setButton] = useState({bool: false, category: 4})
+
+	const onClick = (e: React.MouseEvent<HTMLElement>, category: number) => {
+		setButton({bool: !button.bool, category: category})
+	}
+
+	function sortCollections(arr:Array<Collection>, category=button.category){
 		// This sorts by DAO rank, but can put whatever logic here we want
-		// Likely want something dynamic that allows users to choose.
-		// Maybe some lib functions for such functionality, idk.
-		arr.sort((n1,n2) => {
-			if (parseInt(n1.daoRank) > parseInt(n2.daoRank)) {
-				return 1;
-			}
-		
-			if (parseInt(n1.daoRank) < parseInt(n2.daoRank)) {
-				return -1;
-			}
-		
-			return 0;
-		})
-		return arr
+		// Likely want something a bit more compact here, will pick it up later.
+		if(button.bool === true){
+			arr = helpers.sorts(arr, category)
+			return arr
+		} else {	
+			arr = helpers.reverse(arr, category)
+			return arr
+		}
 	}
 
 	const categories = ["Name", "Volume", "Supply", "Avg Wallet", "DAO Rank", "Lorem", "Ipsum"]
@@ -84,15 +86,23 @@ export const DerivCollections: React.FC = () => {
 			<tr className={derivStyle.TableHeading}>
 				<th></th>
 				{categories.map(x => {
-					return (
-						<th>{x}</th>
-					)
-				}
+					if ((categories.indexOf(x) >= 1) && categories.indexOf(x) <= 4){
+						let idx = categories.indexOf(x)
+						return (
+							<th onClick={(e) => onClick(e, idx)}>
+								<FaSortAmountUpAlt/>
+								{x}
+							</th>)
+						} else {
+							return (<th>{x}</th>)
+						}
+					}
 				)}
 			</tr>
-			{sortCollections(collections).map(x => {
+			{
+			sortCollections(collections).map(x => {
 			return (
-				<DerivCard 
+				<DerivCard
 					name={x.name} 
 					volume={x.volume} 
 					supply={x.supply} 
