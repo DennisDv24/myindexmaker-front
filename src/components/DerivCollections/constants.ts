@@ -4,7 +4,7 @@ const BANNERS_CONTRACT = "0x1352149Cd78D686043B504e7e7D96C5946b0C39c"
 const AURA_CONTRACT = "0x2fC722C1c77170A61F17962CC4D039692f033b43"
 
 export const constants = {
-    collectionNames: [
+    contracts: [
         //place it in here
         MILADY_CONTRACT, 
         BANNERS_CONTRACT, 
