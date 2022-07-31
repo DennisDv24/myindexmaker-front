@@ -1,5 +1,5 @@
 import { Home } from './pages/home/Home';
-import { AboutPage } from './pages/about/AboutPage';
+import { AboutPage } from './pages/about/About';
 
 import {
 	BrowserRouter,

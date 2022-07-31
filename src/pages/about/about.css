@@ -1,3 +1,15 @@
+.about {
+	height: inherit;
+	width: inherit;
+}
+
+.about__section {
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
 
 .CenteredContent {
 	background: url('../../resources/diamond.svg') no-repeat center center;
