@@ -1,27 +1,32 @@
 .button {
-	--border-color1: #541a62;
-	--border-color2: #724084;
-	--text-color: white;
+	--border-color1: var(--color-purple-600);
+	--border-color2: var(--color-purple-500);
+	--text-color: var(--color-white);
 	--bg-color: var(--heading-color);
-    --border-color: 
-        var(--border-color2) var(--border-color2)
-        var(--border-color1) var(--border-color1);
-    font-size: var(--text-font-size-l);
-	background-color: var(--bg-color);
-	color: var(--text-color);
-	border-color: var(--border-color);
-	border-width: 5px;
-	transition: 
-		background-color ease-in-out 0.4s, 
-		border-color ease-in-out 0.2s;
+	--border-color: 
+	var(--border-color2) var(--border-color2)
+	var(--border-color1) var(--border-color1);
+	cursor: pointer;
 }
 
-.button:hover {
+.button--rectangle {
+	font-size: var(--text-font-size-l);
+	text-align: center;
+	background-color: var(--bg-color);
+	color: var(--text-color);
+	border-style: solid;
+	border-color: var(--border-color);
+	border-width: 5px;
+	width: 8em;
+	line-height: 20px;
+}
+
+.button--rectangle:hover {
 	--bg-color: blue;
     --border-color: red yellow green green; 
 }
 
-.button:target {
+.button--rectangle:target {
 	--bg-color: blue;
     --border-color: red yellow green green; 
 }
@@ -30,6 +35,6 @@
 
 }
 
-.button_type__a {
-
+.button-type--a {
+	text-decoration: none;
 }
