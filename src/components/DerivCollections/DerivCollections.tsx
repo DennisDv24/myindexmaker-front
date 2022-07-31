@@ -24,21 +24,21 @@ export const DerivCollections: React.FC = () => {
 	const retrieveCollection = (collection: string) => {
 		CollectionService.getCollection(collection) // ---> '../../services' & '../../utils'
 		  .then((response: any) => {
-			const volume = parseInt(response.data.collection.stats.total_volume)
-			const volStr = (Math.round(volume * 100) / 100).toString()
-			const supply = response.data.collection.stats.total_supply
-			const tokensPerWallet = (Math.round(supply / response.data.collection.stats.num_owners * 10) / 10).toString()
+			const stats = response.data.collection.stats
+			const volume = (Math.round(parseInt(stats.total_volume) * 100) / 100).toString()
+			const supply = stats.total_supply
+			const tokensPerWallet = (Math.round(supply / stats.num_owners * 10) / 10).toString()
 			switch(collection) {
 				case "milady": {
-					setMiladyCollection({supply: supply, volume: volStr, tokensPerWallet: tokensPerWallet});
+					setMiladyCollection({supply: supply, volume: volume, tokensPerWallet: tokensPerWallet});
 					break
 				}
 				case "banners-nft": {
-					setBannerCollection({supply: supply, volume: volStr, tokensPerWallet: tokensPerWallet});
+					setBannerCollection({supply: supply, volume: volume, tokensPerWallet: tokensPerWallet});
 					break
 				}
 				case "miladyaura": {
-					setAuraCollection({supply: supply, volume: volStr, tokensPerWallet: tokensPerWallet});
+					setAuraCollection({supply: supply, volume: volume, tokensPerWallet: tokensPerWallet});
 				}
 			}
 		  })
@@ -61,7 +61,7 @@ export const DerivCollections: React.FC = () => {
 				</th>
 				<th>
 					<FaSortAmountUpAlt />
-					Tokens Per Wallet mean
+					Avg Wallet
 				</th>
 				<th>
 					<FaSortAmountDownAlt />
