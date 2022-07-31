@@ -8,6 +8,10 @@ import derivStyle from './DerivCard.module.css';
 
 export const DerivCollections: React.FC = () => {
 
+
+	//can definitely do these state initializations better, probably with an interface
+	//could look something like: milady, setMilady = useState({}) 
+	// -- likely need some kind of interface/type for each collection to hold all of the data.
 	const [miladySupply, setMiladySupply] = useState("");
 	const [miladyVolume, setMiladyVolume] = useState("");
 	const [miladyNumTokens, setMiladyNumTokens] = useState("");
@@ -23,11 +27,11 @@ export const DerivCollections: React.FC = () => {
 	useEffect(() => {
 		retrieveCollection("milady");
 		retrieveCollection("banners-nft");
-		retrieveCollection("miladyaura")
+		retrieveCollection("miladyaura");
 	});
 
 	const retrieveCollection = (collection: string) => {
-		CollectionService.getCollection(collection)
+		CollectionService.getCollection(collection) // ---> '../../services' & '../../utils'
 		  .then((response: any) => {
 			const volume = parseInt(response.data.collection.stats.total_volume)
 			const volStr = (Math.round(volume * 100) / 100).toString()
@@ -35,6 +39,7 @@ export const DerivCollections: React.FC = () => {
 			const numTokensPerWallet = (Math.round(supply / response.data.collection.stats.num_owners * 10) / 10).toString()
 			switch(collection) {
 				case "milady": {
+					// if we figure out better way to initialize state, this can be reduced to 1 line per switch case.
 					setMiladySupply(supply);
 					setMiladyVolume(volStr);
 					setMiladyNumTokens(numTokensPerWallet)
