@@ -14,11 +14,15 @@
 	transition: 
 		background-color ease-in-out 0.4s, 
 		border-color ease-in-out 0.2s;
+	font-family: 'Citizen';
+	font-weight: 900;
+	letter-spacing: 1px;
 }
 
 .button:hover {
 	--bg-color: blue;
-    --border-color: red yellow green green; 
+    --border-color: red yellow green green;
+	cursor: pointer;
 }
 
 .button:target {
