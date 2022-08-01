@@ -3,11 +3,11 @@ import { DerivCard } from './DerivCard';
 import CollectionService from '../../services/CollectionsService'
 import { FaSortAmountDownAlt, FaSortAmountUpAlt } from 'react-icons/fa';
 import { constants } from "./constants";
+import cardStyle from './DerivCard.module.css';
 
 import derivStyle from './DerivCard.module.css';
 import { Collection, emptyList } from "./initObjs";
 import helpers from "./helpers";
-import { jSXElement } from "@babel/types";
 
 export const DerivCollections: React.FC = () => {
 
@@ -82,11 +82,7 @@ export const DerivCollections: React.FC = () => {
 		}
 	}
 
-	const categories = ["Name", "Volume", "Supply", "Avg Wallet", "DAO Rank", "Lorem", "Ipsum"] // columns
-
-	const boldText: React.CSSProperties = {
-		fontWeight: "bold"
-	};
+	const categories = ["Name", "Volume", "Supply", "Avg Wallet", "Rank", "Lorem", "Ipsum"] // columns
 	return (
 		<table className={derivStyle.DerivTable}>
 			<tr className={derivStyle.TableHeading}>
@@ -95,12 +91,14 @@ export const DerivCollections: React.FC = () => {
 					if ((categories.indexOf(x) >= 1) && categories.indexOf(x) <= 4){ // we only want columns Volume through DAO Rank
 						let idx = categories.indexOf(x) // used to identify category --> onClick(event, category)
 						return (
-							<th onClick={(e) => onClick(e, idx)}>
+							<th className={cardStyle.ColumnHeader} onClick={(e) => onClick(e, idx)}>
 								<FaSortAmountUpAlt/>
 								{x}
-							</th>)
+							</th>
+							)
 						} else {
-							return (<th>{x}</th>)
+							if(x=="Name"){return (<th className={cardStyle.NameColumnHeader}>{x}</th>)}
+							else{return (<th>{x}</th>)}
 						}
 					}
 				)}

@@ -13,9 +13,12 @@ export const AboutPage = () => {
 				<p>
 					MyIndex Maker is a community driven 
 					Remilia derivatives gallery. The list,
-					featured collections and scores are determined
-					by TheIndex DAO, so Milady has full control
-					over the lists.
+					featured collections, and rank are determined
+					by TheIndex DAO.
+					<br/>
+					<br/>
+					All Remilia/Milady derivatives are welcome to
+					submit proposals to be listed the MyIndex Maker index.
 				</p>
 			</div>
 		</div>

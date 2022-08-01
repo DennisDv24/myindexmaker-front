@@ -23,16 +23,15 @@ export const DerivCard: FC<{
 			className={cardStyle.Card}
 			id={first ? cardStyle['first'] : last ? cardStyle['last'] : ''}
 		>
-			<td 
-				className={cardStyle.CardImg}
-			>
-				<img src={img} alt="" />
+			<td>
+			<img className={cardStyle.CardImg} src={img} alt="" />
 			</td>
+
 			<td className={cardStyle.CardName}>
 				{name}
 			</td>
-			<td>
-				<div className={cardStyle.Amount}><div className={cardStyle.Vol}>{volume}</div><span className={cardStyle.LogoText}>{"Ξ"}</span></div>
+			<td className={cardStyle.Vol}>
+				<div className={cardStyle.Amount}><div className={cardStyle.Value}>{volume}</div><span className={cardStyle.LogoText}>{"Ξ"}</span></div>
 			</td>
 			<td className={cardStyle.Data}>
 			{supply}

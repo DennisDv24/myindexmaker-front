@@ -9,7 +9,7 @@
 	position: sticky;
 	background-color: var(--bg-color);
 	width: 60%; /* 100 - 20vw*2 */
-	margin: 10vh auto;
+	margin: 4.5vh auto;
 	justify-content: center;
 	border-style: double;
 	border-width: 15px;
@@ -72,4 +72,14 @@
 		width: 88%;
 	}
 
+}
+
+@media (max-width: 400px) {
+	.Content {
+		width: 90%;
+		margin-top: 20px;
+	}
+	.Content::after{
+		box-shadow: none;
+	}
 }

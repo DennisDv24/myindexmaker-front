@@ -11,7 +11,7 @@ export const MainNav: FC = () => {
 			<ButtonLink value='Proposals' as='button' link='/' />
 			<ButtonLink value='About' as='button' link='/about' />
 			<Button
-				value='Connect wallet' 
+				value='Connect Wallet' 
 				as='button'
 				otherProps={{
 					onClick: () => {console.log('milady?')}
