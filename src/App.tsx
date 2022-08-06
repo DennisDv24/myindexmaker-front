@@ -11,7 +11,7 @@ import './App.css';
 
 function App() {
 	return (
-		<div className="container">
+		<div className="container scrollbar scrollbar--theme-custom">
 			<BrowserRouter>
 				<Routes>
 					<Route path='/' element={<Home />} />
