@@ -30,7 +30,7 @@
 
 /* Custom scrollbar */
 .scrollbar--theme-custom {
-	--scrollbar-width: 14px;
+	--scrollbar-width: 9px;
     --scrollbar-bg-color: var(--color-purple-600);
 	--scrollbar-overflow-x: hidden;
 	--scrollbar-overflow-y: scroll;
@@ -44,7 +44,7 @@
 }
 
 .scrollbar--theme-custom::-webkit-scrollbar-thumb {
-	border: 4px solid rgba(0, 0, 0, 0);
+	border: 2px solid rgba(0, 0, 0, 0);
 	background-clip: padding-box;
 	border-radius: 20px;
 	background-color: var(--scrollbar-bg-color);
