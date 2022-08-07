@@ -18,28 +18,28 @@ export const DerivedTableRow: FC<DerivedTableRowProps> = ({
 
     return (
         <tr className={`derived-table__row ${isOdd ? 'derived-table__row--odd' : 'derived-table__row--even'}`}>
-            <td className='derived-table__cell derived-table__cell--item-image' >
+            <td className='derived-table__cell derived-table__cell--item-image derived-table__cell--bordered' >
                 <img className='derived-table__image' src={img} alt="" />
             </td>
             <td 
-                className='derived-table__cell derived-table__cell--item'
+                className='derived-table__cell derived-table__cell--item derived-table__cell--bordered'
                 style={{padding: '10px 0px'}}
             >
                 {name}
             </td>
-            <td className='derived-table__cell derived-table__cell--item' >
+            <td className='derived-table__cell derived-table__cell--item derived-table__cell--bordered' >
                 {volume}
             </td>
-            <td className='derived-table__cell derived-table__cell--item' >
+            <td className='derived-table__cell derived-table__cell--item derived-table__cell--bordered' >
                 {supply}
             </td>
-            <td className='derived-table__cell derived-table__cell--item' >
+            <td className='derived-table__cell derived-table__cell--item derived-table__cell--bordered' >
                 {tokensPerWallet}
             </td>
-            <td className='derived-table__cell derived-table__cell--item' >
+            <td className='derived-table__cell derived-table__cell--item derived-table__cell--bordered' >
                 {daoRank}
             </td>
-            <td className='derived-table__cell derived-table__cell--item' >
+            <td className='derived-table__cell derived-table__cell--item derived-table__cell--bordered' >
                 {8}
             </td>
         </tr>

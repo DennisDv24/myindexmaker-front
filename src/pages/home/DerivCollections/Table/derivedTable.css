@@ -1,6 +1,5 @@
 .derived-table {
 	width: 100%;
-	border-collapse: collapse;
 }
 
 .derived-table__heading {
@@ -44,6 +43,7 @@
 	aspect-ratio: 1/1;
 	object-fit: cover;
 	border-radius: 100%;
+	border: 3px solid rgba(90, 87, 71, 0.164);
 }
 
 .derived-table__cell {
@@ -52,6 +52,12 @@
 
 .derived-table__cell--item {
 	font-size: 10px;
+}
+
+.derived-table__cell--bordered {
+	border-radius: 1%;
+	border: 2px solid rgba(82, 81, 81, 0.055);
+	background-color: rgba(158, 158, 158, 0.027);
 }
 
 .derived-table__cell--item-image {
