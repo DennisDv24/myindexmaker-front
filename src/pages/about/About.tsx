@@ -1,39 +1,19 @@
-import { Link } from '../../components/Link/Link';
+import { DiamondLink } from './DiamondLink/DiamondLink';
 
 import './about.css';
+import { DiamondContainer } from './DiamondContainer/DiamondContainer';
 
 export const AboutPage = () => {
 	return (
 		<div className='about'>
 			<section className='about__section'>
-				<Link link='/'>
-					<h1>MyIndex Maker</h1>
-				</Link>
-				<p>
-					MyIndex Maker is a community driven
-					Remilia derivatives gallery. The list,
-					featured collections and scores are determined
-					by TheIndex DAO, so Milady has full control
-					over the lists.
-				</p>
+				<DiamondContainer />
 			</section>
 			<section className='about__section'>
-				<div className='Links'>
-					<div>
-						<span>
-							Whitepaper
-						</span>
-					</div>
-					<div>
-						<span>
-							Contracts
-						</span>
-					</div>
-					<div>
-						<span>
-							Milady
-						</span>
-					</div>
+				<div className='links'>
+					<DiamondLink label='WhitePaper' href='' />
+					<DiamondLink label='Contracts' href='' />
+					<DiamondLink label='Milady' href='' />
 				</div>
 			</section>
 		</div>
