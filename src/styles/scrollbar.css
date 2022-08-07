@@ -1,0 +1,49 @@
+.scrollbar {
+	--scrollbar-width: 0.2em;
+	--scrollbar-bg-color: grey;
+	--scrollbar-overflow-x: hidden;
+	--scrollbar-overflow-y: hidden;
+	overflow-x: var(--scrollbar-overflow-x);
+	overflow-y: var(--scrollbar-overflow-y);
+}
+
+.scrollbar--overflow-x-auto {
+	--scrollbar-overflow-x: auto;
+}
+
+.scrollbar--overflow-y-auto {
+	--scrollbar-overflow-y: auto;
+}
+
+.scrollbar--overflow-x-hidden {
+	--scrollbar-overflow-x: hidden;
+}
+
+.scrollbar--overflow-y-hidden {
+	--scrollbar-overflow-y: hidden;
+}
+
+/* Custom scrollbar */
+.scrollbar--theme-custom {
+	--scrollbar-width: 14px;
+    --scrollbar-bg-color: var(--color-purple-600);
+	--scrollbar-overflow-x: hidden;
+	--scrollbar-overflow-y: auto;
+}
+
+.scrollbar--theme-custom::-webkit-scrollbar {
+	width: var(--scrollbar-width);
+}
+
+.scrollbar--theme-custom::-webkit-scrollbar-thumb {
+	border: 4px solid rgba(0, 0, 0, 0);
+	background-clip: padding-box;
+	border-radius: 20px;
+	background-color: var(--scrollbar-bg-color);
+}
+
+.scrollbar--theme-custom::-webkit-scrollbar-thumb:hover {
+	--scrollbar-bg-color: #00000077;
+}
+
+/* Add styles for scrollbar that supports firefox browser */

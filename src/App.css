@@ -2,6 +2,7 @@
 @import url(./styles/colors.css);
 @import url(./styles/fonts.css);
 @import url(./styles/text.css);
+@import url(./styles/scrollbar.css);
 
 :root {
 	--heading-color: #014;
@@ -20,29 +21,4 @@ html {
 .container {
 	width: 100vw;
 	height: 100vh;
-}
-
-.scrollbar {
-	--scrollbar-width: 0.2em;
-	--scrollbar-bg-color: var(--color-purple-600);
-	overflow-y: auto;
-	overflow-x: hidden;
-}
-
-.scrollbar--theme-custom {
-	--scrollbar-width: 14px;
-}
-
-.scrollbar--theme-custom::-webkit-scrollbar {
-	width: var(--scrollbar-width);
-}
-
-.scrollbar--theme-custom::-webkit-scrollbar-thumb {
-	border: 4px solid rgba(0, 0, 0, 0);
-	background-clip: padding-box;
-	border-radius: 20px;
-	background-color: var(--scrollbar-bg-color);
-}
-.scrollbar--theme-custom::-webkit-scrollbar-thumb:hover {
-	--scrollbar-bg-color: #00000077;
 }
