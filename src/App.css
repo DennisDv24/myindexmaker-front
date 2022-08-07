@@ -16,6 +16,7 @@ html {
   	-o-background-size: cover;
   	background-size: cover;
 	overflow: overlay;
+	font-family: 'Citizen', Courier, monospace;
 }
 
 .container {
