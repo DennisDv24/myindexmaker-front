@@ -1,7 +1,7 @@
-.Content {
+/* .Content {
 	position: sticky;
 	background-color: var(--bg-color);
-	width: 60%; /* 100 - 20vw*2 */
+	width: 60%;
 	margin: 10vh auto;
 	justify-content: center;
 	border-style: double;
@@ -22,9 +22,9 @@
 	border-color: var(--button-border-color2);
 	background-clip: padding-box;
   	box-shadow: -15px 15px #00000033;
-}
+} */
 
-.MainHeading {
+/* .MainHeading {
 	margin: 30px 0;
 }
 
@@ -45,9 +45,9 @@
 	font-size: 28px;
 	margin: 20px;
 	padding: 0;
-}
+} */
 
-
+/* 
 @media (max-width: 1439px) {
 	.Content {
 		width: 70%
@@ -65,19 +65,19 @@
 		width: 88%;
 	}
 
-}
+} */
 
 .home {
 	height: inherit;
 	width: inherit;
 	display: flex;
 	justify-content: center;
-    align-items: center;
+	margin: 1em 0em;
 }
 
 .card-wrapper {
 	width: 80vw;
-    height: 90vh;
+    height: max-content;
 	background-color: var(--bg-color);
 	border: 15px double var(--bg-color);
 	background-clip: padding-box;
@@ -87,10 +87,9 @@
 }
 
 .card {
-    height: 100%;
     display: grid;
     grid-template-columns: repeat(1, 1fr);
-    grid-template-rows: auto 1fr 1fr;
+    grid-template-rows: auto 1fr auto;
 	grid-gap: 1em;
 }
 
@@ -116,5 +115,4 @@
 }
 
 .card__table {
-	overflow-y: scroll;
 }
