@@ -68,11 +68,10 @@
 } */
 
 .home {
-	height: inherit;
 	width: inherit;
 	display: flex;
 	justify-content: center;
-	margin: 1em 0em;
+	margin: 2em 0em;
 }
 
 .card-wrapper {
