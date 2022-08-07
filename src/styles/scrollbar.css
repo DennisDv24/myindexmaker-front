@@ -23,12 +23,20 @@
 	--scrollbar-overflow-y: hidden;
 }
 
+.scrollbar--theme-reset {
+	scrollbar-width: initial;
+	scrollbar-color: initial;
+}
+
 /* Custom scrollbar */
 .scrollbar--theme-custom {
 	--scrollbar-width: 14px;
     --scrollbar-bg-color: var(--color-purple-600);
 	--scrollbar-overflow-x: hidden;
-	--scrollbar-overflow-y: auto;
+	--scrollbar-overflow-y: scroll;
+	/* firefox supports */
+	scrollbar-width: thin;
+	scrollbar-color: var(--scrollbar-bg-color) transparent;
 }
 
 .scrollbar--theme-custom::-webkit-scrollbar {
