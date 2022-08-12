@@ -5,6 +5,7 @@
 }
 
 button {
+    font-family: inherit;
     cursor: auto;
     background: none;
     -webkit-font-smoothing: inherit;

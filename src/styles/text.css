@@ -1,0 +1,13 @@
+:root {
+	--text-font-size-6xl: 4em;
+    --text-font-size-5xl: 3em;
+	--text-font-size-4xl: 2.5em;
+	--text-font-size-3xl: 2em;
+	--text-font-size-2xl: 1.75em;
+	--text-font-size-xl: 1.5em;
+	--text-font-size-l: 1.25em;
+	--text-font-size-2md: 1em;
+	--text-font-size-md: 0.75em;
+	--text-font-size-s: 0.5em;
+	--text-font-size-xs: 0.25em;
+}

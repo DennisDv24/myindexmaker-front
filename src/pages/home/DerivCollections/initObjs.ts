@@ -1,4 +1,4 @@
-export class Collection {
+export class Collection{
     name: string;
     volume: string;
     supply: string;

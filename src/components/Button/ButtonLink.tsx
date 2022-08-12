@@ -1,18 +1,17 @@
 import { FC } from 'react';
 import { Link, LinkProps } from "../Link/Link"
-import { Button, ButtonProps } from "./Button"
+import { ButtonProps } from "./Button"
 
-type ButtonLinkProps = LinkProps & ButtonProps;
+type ButtonLinkProps = LinkProps & Pick<ButtonProps, 'value'>;
 
 export const ButtonLink: FC<ButtonLinkProps> = ({
-    as,
     link,
     value,
-    otherProps
+    linkToProps
 }) => {
     return (
-        <Link link={link}>
-            <Button as={as} value={value} {...otherProps} />
+        <Link link={link} linkToProps={{ className: 'button button--rectangle button-type--a', ...linkToProps}}  >
+            {value}
         </Link>
     )
 }
