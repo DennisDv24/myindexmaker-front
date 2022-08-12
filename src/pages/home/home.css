@@ -26,7 +26,7 @@
 }
 
 .card__header{
-    text-align: center;
+	text-align: center;
     height: inherit;
     width: inherit;
     align-items: center;
@@ -34,6 +34,7 @@
 }
 
 .card__header h1 {
+	color: var(--heading-color);
 	margin-bottom: 1em;
 }
 
@@ -57,7 +58,7 @@
 /* Larger than phablet (also point when grid becomes active) */
 @media (min-width: 550px) {
 	.card {
-		grid-template-rows: 0.3fr 0.3fr 1fr;
+		grid-template-rows: auto;
 	}
 	.card__navbar {
 		justify-content: space-around;
@@ -70,17 +71,51 @@
 
 /* Larger than tablet */
 @media (min-width: 750px) {
-	/* ok grid */
+	.card-wrapper {
+		width: 70vw;
+	}
 }
 
 /* Larger than desktop */
 @media (min-width: 1000px) {
+	
+	.button--rectangle { /* Button more larger */
+		font-size: var(--text-font-size-2md);
+		width: 9em;
+	}
+	.card-wrapper {
+		width: 55vw;
+	}
 	.card {
-		grid-template-rows: 0.3fr 0.3fr 1fr;
+		grid-template-rows: auto;
 	}
 }
 
 /* Larger than Desktop HD */
 @media (min-width: 1200px) {
-	
+
+	.button--rectangle { /* Button more larger */
+		font-size: var(--text-font-size-l);
+		width: 9em;
+	}
+
+	.card-wrapper {
+		width: 50vw;
+		margin: 5em auto;
+	}
+
+	.card {
+		grid-template-rows: auto 5em auto auto;
+		
+	}
+
+	.card__header h1 {
+		font-size: var(--text-font-size-6xl);
+		margin-bottom: 0em;
+	}
+
+	.card__header h2 {
+		font-size: var(--text-font-size-3xl);
+		letter-spacing: 0.2em;
+	}
 }
