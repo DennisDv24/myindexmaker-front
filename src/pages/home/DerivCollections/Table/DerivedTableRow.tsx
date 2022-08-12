@@ -21,10 +21,7 @@ export const DerivedTableRow: FC<DerivedTableRowProps> = ({
             <td className='derived-table__cell derived-table__cell--item-image derived-table__cell--bordered' >
                 <img className='derived-table__image' src={img} alt="" />
             </td>
-            <td 
-                className='derived-table__cell derived-table__cell--item derived-table__cell--bordered'
-                style={{padding: '10px 0px'}}
-            >
+            <td className='derived-table__cell derived-table__cell--item derived-table__cell--bordered' >
                 {name}
             </td>
             <td className='derived-table__cell derived-table__cell--item derived-table__cell--bordered' >
