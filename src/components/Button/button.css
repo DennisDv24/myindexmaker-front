@@ -14,7 +14,7 @@
 	text-align: center;
 	background-color: var(--bg-color);
 	color: var(--text-color);
-	border-style: solid;
+	border-style: outset;
 	border-color: var(--border-color);
 	border-width: 5px;
 	width: 8em;
