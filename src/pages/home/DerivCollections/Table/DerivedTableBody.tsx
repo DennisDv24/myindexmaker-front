@@ -11,7 +11,7 @@ export const DerivedTableBody: FC<DerivedTableBodyProps> = ({
 }) => {
     
     return (
-        <tbody style={{overflowY:'auto'}} >
+        <tbody>
             {data.map((collection, index) => 
                 <DerivedTableRow 
                     key={collection.address} 
