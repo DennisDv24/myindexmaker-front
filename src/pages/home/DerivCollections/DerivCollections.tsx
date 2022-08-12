@@ -1,6 +1,6 @@
 import React, { useState, ChangeEvent, useEffect } from "react";
 import { DerivCard } from './DerivCard';
-import CollectionService from '../../services/CollectionsService'
+import CollectionService from '../../../services/CollectionsService'
 import { FaSortAmountDownAlt, FaSortAmountUpAlt } from 'react-icons/fa';
 import { constants } from "./constants";
 import cardStyle from './DerivCard.module.css';
