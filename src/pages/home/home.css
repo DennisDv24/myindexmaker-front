@@ -1,94 +1,27 @@
-/* .Content {
-	position: sticky;
-	background-color: var(--bg-color);
-	width: 60%;
-	margin: 10vh auto;
-	justify-content: center;
-	border-style: double;
-	border-width: 15px;
-	border-color: var(--bg-color);
-	background-clip: padding-box;
-}
-.Content:after {
-  	content: " ";
-  	position: absolute;
-  	z-index: -1;
-  	top: -18px;
-  	left: -18px;
-  	right: -18px;
-  	bottom: -18px;
-	border-style: solid;
-	border-width: 3px;
-	border-color: var(--button-border-color2);
-	background-clip: padding-box;
-  	box-shadow: -15px 15px #00000033;
-} */
-
-/* .MainHeading {
-	margin: 30px 0;
-}
-
-.Content h1 {
-	font-family: 'Citizen';
-	font-size: 64px;
-	padding: 0;
-	margin: 0;
-	color: var(--heading-color);
-}
-
-.Content h2 {
-	font-size: 32px;
-	margin: 0;
-}
-
-.Content p {
-	font-size: 28px;
-	margin: 20px;
-	padding: 0;
-} */
-
-/* 
-@media (max-width: 1439px) {
-	.Content {
-		width: 70%
-	}
-}
-
-@media (max-width: 1024px) {
-	.Content {
-		width: 80%
-	}
-}
-
-@media (max-width: 768px) {
-	.Content {
-		width: 88%;
-	}
-
-} */
-
 .home {
 	width: inherit;
 	display: flex;
 	justify-content: center;
-	margin: 2em 0em;
 }
 
 .card-wrapper {
 	width: 80vw;
-    height: max-content;
 	background-color: var(--bg-color);
 	border: 15px double var(--bg-color);
 	background-clip: padding-box;
-	box-shadow: -1rem 1rem #00000033;
+	box-shadow: -1rem 0.7rem #00000033;
 	outline: 3px solid black;
 	padding: 10px;
+	margin: 1em;
+	min-height: 200px;
+    height: fit-content;
 }
 
 .card {
-    display: grid;
+	height: 100%;
+	display: grid;
     grid-template-columns: repeat(1, 1fr);
-    grid-template-rows: auto 1fr auto;
+    grid-template-rows: 0.2fr 0.2fr 1fr;
 	grid-gap: 1em;
 }
 
@@ -111,4 +44,43 @@
 	flex-wrap: wrap;
 	gap: 10px 0px;
 	align-items: center;
+}
+
+/* Larger than mobile */
+@media (min-width: 400px) { 
+	.card__navbar {
+		justify-content: space-between;
+		flex-direction: column;
+	}
+}
+
+/* Larger than phablet (also point when grid becomes active) */
+@media (min-width: 550px) {
+	.card {
+		grid-template-rows: 0.3fr 0.3fr 1fr;
+	}
+	.card__navbar {
+		justify-content: space-around;
+		flex-direction: row;
+	}
+	.button--rectangle {
+		line-height: initial;
+	}
+}
+
+/* Larger than tablet */
+@media (min-width: 750px) {
+	/* ok grid */
+}
+
+/* Larger than desktop */
+@media (min-width: 1000px) {
+	.card {
+		grid-template-rows: 0.3fr 0.3fr 1fr;
+	}
+}
+
+/* Larger than Desktop HD */
+@media (min-width: 1200px) {
+	
 }
