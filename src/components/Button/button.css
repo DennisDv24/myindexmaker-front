@@ -11,6 +11,7 @@
 
 .button--rectangle {
 	font-size: var(--text-font-size-l);
+	font-weight: bold;
 	text-align: center;
 	background-color: var(--bg-color);
 	color: var(--text-color);
