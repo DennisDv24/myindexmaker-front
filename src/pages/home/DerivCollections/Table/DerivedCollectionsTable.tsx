@@ -16,6 +16,7 @@ export const DerivedCollectionsTable: FC<TableProps> = ({
     
     return (
         <table className='derived-table' >
+            <caption>Milady and Remilia derived collections</caption>
             <DerivedTableHeader />
             <DerivedTableBody data={items} />
         </table>
