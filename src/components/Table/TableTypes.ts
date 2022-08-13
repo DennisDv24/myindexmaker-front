@@ -4,6 +4,8 @@ export type ElementTable<T> = {
 	sortable: boolean;
 	cellClassName: string;
     headerClassName?: string;
+    parserValue?: (value: T[keyof T]) => string;
+    imageProps?: React.DetailedHTMLProps<React.ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement>;
 }
 
 export type LoadMoreOptions<T> = {
@@ -17,6 +19,9 @@ export type TableProps<T> = {
     mapperElements: ElementTable<T>[];
     loadMoreOptions: LoadMoreOptions<T>;
     caption: string;
+    tableStyles: {
+        tableClass: string;
+    };
 }
 
 export type TableHeaderProps<T> = {
@@ -33,6 +38,13 @@ export type TableBodyProps<T> = {
 export type TableRowProps<T> = {
     item: T;
     mapperTable: ElementTable<T>[];
+}
+
+export type TableCellProps<T,> = {
+    value: T[keyof T];
+    parser?: (value: T[keyof T]) => string;
+    imageProps?: React.DetailedHTMLProps<React.ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement>;
+    cellClassname: string;
 }
 
 export type OrderType = 'asc' |'desc';
