@@ -23,7 +23,7 @@ const CollectionService = () => {
                 name: name,
                 supply: total_supply,
                 tokensPerWallet: (Math.round(total_supply / num_owners * 10) / 10).toString(),
-                volume: total_volume
+                volume: (Math.round(Number(total_volume.toFixed(0)) * 100) / 100)
             }
 
             return new DerivedCollection(derivateCollection);
