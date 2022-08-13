@@ -1,6 +1,6 @@
 import React, { useState, ChangeEvent, useEffect } from "react";
 import { DerivCard } from './DerivCard';
-import CollectionService from '../../../services/CollectionsService'
+import OpenseaService from '../../../services/OpenSea/OpenseaService'
 import { FaSortAmountDownAlt, FaSortAmountUpAlt } from 'react-icons/fa';
 import { constants } from "./constants";
 import cardStyle from './DerivCard.module.css';
@@ -17,20 +17,22 @@ export const DerivCollections: React.FC = () => {
 
 	useEffect(() => {
 		const retrieveCollection = (contract: string) => {
-			CollectionService.getContract(contract) // ---> '../../services' & '../../utils'
-				.then((response: any) => {
+			OpenseaService.getContract(contract) // ---> '../../services' & '../../utils'
+				.then((response) => {
 					const slug = response.data.collection.slug
 					retrieveData(slug)
 				})
 				.catch((e: Error) => console.log(e))
 		};
+		
 		for(let i=0; i<constants.contracts.length; i++){
 			retrieveCollection(constants.contracts[i])
 		}
+		console.log(collections);
 	}, []);
 
 	function retrieveData(slug: string){
-		CollectionService.getCollection(slug)
+		OpenseaService.getCollection(slug)
 		.then((response: any) => {
 		  const stats = response.data.collection.stats
 		  const volume = (Math.round(parseInt(stats.total_volume) * 100) / 100).toString()
