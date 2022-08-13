@@ -32,6 +32,7 @@ export const useSortableTable = <T,>(data: T[], options: LoadMoreOptions) => {
     return {
         tableData,
         visibility,
+        defaultData,
         setDefaultData,
         setTableData,
         handleSorting,
