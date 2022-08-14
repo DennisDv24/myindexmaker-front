@@ -17,21 +17,17 @@ export const TableBody = <T,>({
         </tr>
     );
 
-    const DataRows = () => (
-        <>
-            {items
-                .slice(0, visibility)
-                .map((item, i) => <TableRow key={i} item={item} mapperTable={mapperTable} />)
-            }
-        </>
-    )
-
     return (
         <tbody>
             {
                 loading ?
                     <LoadingRow /> :
-                    <DataRows />
+                    items
+                        .slice(0, visibility)
+                        .map((item, i) => 
+                            <TableRow key={i} item={item} mapperTable={mapperTable} />
+                        )
+
             }
         </tbody>
     )
