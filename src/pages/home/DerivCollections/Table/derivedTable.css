@@ -3,6 +3,19 @@
 	width: 100%;
 }
 
+.derived-table thead {
+	font-family: 'Citizen';
+}
+
+.derived-table tbody {
+	font-family: 'Courier New', Courier, monospace;
+}
+
+.derived-table {
+	table-layout: fixed;
+	width: 100%;
+}
+
 .derived-table caption {
 	font-size: var(--text-font-size-s);
 	padding: 0.1em;
@@ -26,10 +39,10 @@
 	width: 10%;
 }
 .derived-table th:nth-child(2) {
-	width: 30%;
+	width: 25%;
 }
 .derived-table th:nth-child(3) {
-	width: 10%;
+	width: 25%;
 }
 .derived-table th:nth-child(4) {
 	width: 20%;
@@ -40,9 +53,9 @@
 .derived-table th:nth-child(6) {
 	width: 10%;
 }
-.derived-table th:nth-child(7) {
-	width: 10%;
-}
+/* .derived-table th:nth-child(7) {
+	width: 5%;
+} */
 
 .derived-table__row {
 	-webkit-user-select: none;     
