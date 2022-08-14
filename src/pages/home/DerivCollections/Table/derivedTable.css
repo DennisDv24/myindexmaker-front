@@ -3,6 +3,12 @@
 	width: 100%;
 }
 
+.derived-table__loading{
+	text-align: center; 
+	align-content: center; 
+	padding: 1em;
+}
+
 .derived-table thead {
 	font-family: 'Citizen';
 }
@@ -109,7 +115,9 @@
 	.derived-table__image {
 		width: 80%;
 	}
-
+	.derived-table__loading{
+		padding: 1.5em;
+	}
 }
 
 /* Larger than phablet (also point when grid becomes active) */
@@ -125,12 +133,19 @@
 	.derived-table__cell--item {
 		font-size: var(--text-font-size-md);
 	}
+
+	.derived-table__loading{
+		padding: 2em;
+	}
 }
 
 /* Larger than tablet */
 @media (min-width: 750px) {
 	.derived-table__image {
 		width: 70%;
+	}
+	.derived-table__loading{
+		padding: 3em;
 	}
 }
 
@@ -156,6 +171,10 @@
 		font-size: var(--text-font-size-md);
 		padding: 0.2em;
 		letter-spacing: 1px;
+	}
+
+	.derived-table__loading{
+		padding: 4em;
 	}
 }
 
@@ -194,6 +213,10 @@
 		font-size: var(--text-font-size-l);
 		padding: 0.3em;
 		letter-spacing: 1px;
+	}
+
+	.derived-table__loading{
+		padding: 5em;
 	}
 	
 }
