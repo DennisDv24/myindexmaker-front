@@ -14,9 +14,6 @@ export const LoadingEyes: FC<LoadingEyesProps> = ({
     return (
         <img
             {...props}
-            style={{
-                width: '10%'
-            }}
             className='loading-eyes'
             src={miladyEyes}
             alt="milady eyes" 
