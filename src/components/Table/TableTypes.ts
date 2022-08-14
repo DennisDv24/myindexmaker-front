@@ -1,3 +1,5 @@
+import React from "react";
+
 export type ElementTable<T> = {
 	label: string; 
 	accessor: keyof T;
@@ -14,10 +16,16 @@ export type LoadMoreOptions<T> = {
     getItems: GetItems<T>;
 }
 
+export type LoadingOptions = {
+    component: React.ReactNode;
+    timeout: number;
+}
+
 export type TableProps<T> = {
     items: T[];
     mapperElements: ElementTable<T>[];
     loadMoreOptions: LoadMoreOptions<T>;
+    loadingOptions: LoadingOptions;
     caption: string;
     tableStyles: {
         tableClass: string;
