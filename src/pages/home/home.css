@@ -5,13 +5,13 @@
 }
 
 .card-wrapper {
-	width: 80vw;
+	width: 85vw;
 	background-color: var(--bg-color);
 	border: 15px double var(--bg-color);
 	background-clip: padding-box;
 	box-shadow: -1rem 0.7rem #00000033;
 	outline: 3px solid black;
-	padding: 10px;
+	padding: 5px;
 	margin: 1em;
 	min-height: 200px;
     height: fit-content;
@@ -35,7 +35,6 @@
 
 .card__header h1 {
 	color: var(--heading-color);
-	margin-bottom: 1em;
 }
 
 .card__navbar {
@@ -48,10 +47,13 @@
 }
 
 /* Larger than mobile */
-@media (min-width: 400px) { 
+@media (min-width: 400px) {
 	.card__navbar {
-		justify-content: space-between;
-		flex-direction: column;
+		justify-content: space-around;
+		flex-direction: row;
+	}
+	.button--rectangle {
+		width: 7em;
 	}
 }
 
