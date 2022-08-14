@@ -19,6 +19,7 @@ export type LoadMoreOptions<T> = {
 export type LoadingOptions = {
     component: React.ReactNode;
     timeout: number;
+    className: string;
 }
 
 export type TableProps<T> = {
@@ -38,6 +39,8 @@ export type TableHeaderProps<T> = {
 }
 
 export type TableBodyProps<T> = {
+    loading: boolean;
+    loadingOptions: Pick<LoadingOptions, 'className' | 'component'>;
     items: T[];
     visibility: number;
     mapperTable: ElementTable<T>[];

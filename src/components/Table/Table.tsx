@@ -1,13 +1,12 @@
 import { useEffect, useState } from 'react'
 import { useSortableTable } from '../../hooks/useSortableTable'
-import { LoadingEyes } from '../LoadingEyes/LoadingEyes'
 import { TableBody } from './TableBody'
 import { TableFooter } from './TableFooter'
 import { TableHeader } from './TableHeader'
 import { TableProps } from './TableTypes'
 
 export const Table = <T,>({
-    items, mapperElements, 
+    items, mapperElements,
     caption, loadMoreOptions,
     loadingOptions,
     tableStyles
@@ -15,7 +14,7 @@ export const Table = <T,>({
 
     const [loading, setLoading] = useState(false);
 
-    const { component, timeout } = loadingOptions;
+    const { component, className, timeout } = loadingOptions;
     const { getItems, initialVisibleItems, stepsVisibleItems } = loadMoreOptions;
 
     const {
@@ -31,17 +30,17 @@ export const Table = <T,>({
     useEffect(() => {
 
         function loadItems() {
-            
+
             getItems()
-            .then(items => {
-                setDefaultData(items);
-                setTableData(items);
-                setLoading(false);
-            })
-            .catch((e) => console.log(e))
-            
+                .then(items => {
+                    setDefaultData(items);
+                    setTableData(items);
+                    setLoading(false);
+                })
+                .catch((e) => console.log(e))
+
         }
-        
+
         setLoading(true);
         setTimeout(() => {
             loadItems()
@@ -50,7 +49,7 @@ export const Table = <T,>({
         return () => {
 
         }
-    }, [getItems, loadMoreOptions, setDefaultData, setTableData]);
+    }, [getItems, loadMoreOptions, setDefaultData, setTableData, timeout]);
 
     return (
         <table className={tableStyles?.tableClass} >
@@ -59,22 +58,13 @@ export const Table = <T,>({
                 headers={mapperElements}
                 handleSorting={handleSorting}
             />
-            {
-                loading ?
-                    <tbody>
-                        <tr>
-                            <td colSpan={mapperElements.length} style={{ textAlign: 'center', alignContent: 'center', padding: '5em' }} >
-                                {component}
-                            </td>
-                        </tr>
-                    </tbody>
-                    :
-                    <TableBody
-                        items={tableData}
-                        mapperTable={mapperElements}
-                        visibility={visibility}
-                    />
-            }
+            <TableBody
+                loading={loading}
+                loadingOptions={{ className: className, component: component }}
+                items={tableData}
+                mapperTable={mapperElements}
+                visibility={visibility}
+            />
             {visibility < defaultData.length ?
                 <TableFooter
                     handleLoadMore={handleUpdateVisibility}
