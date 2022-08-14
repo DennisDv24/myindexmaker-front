@@ -53,9 +53,6 @@
 .derived-table th:nth-child(6) {
 	width: 10%;
 }
-/* .derived-table th:nth-child(7) {
-	width: 5%;
-} */
 
 .derived-table__row {
 	-webkit-user-select: none;     
