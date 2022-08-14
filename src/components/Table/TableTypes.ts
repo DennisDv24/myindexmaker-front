@@ -14,6 +14,7 @@ export type LoadMoreOptions<T> = {
     initialVisibleItems: number;
     stepsVisibleItems: number;
     getItems: GetItems<T>;
+    buttonLoadingClass: string;
 }
 
 export type LoadingOptions = {

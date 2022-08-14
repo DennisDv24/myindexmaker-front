@@ -22,6 +22,17 @@
 	width: 100%;
 }
 
+.derived-table__button_load_more {
+	font-size: var(--text-font-size-s);
+	cursor: pointer;
+	border: 1px solid rgba(82, 81, 81, 0.055);
+    background-color: rgba(158, 158, 158, 0.1);	
+}
+
+.derived-table__button_load_more:hover {
+    background-color: rgba(77, 76, 76, 0.1);
+}
+
 .derived-table caption {
 	font-size: var(--text-font-size-s);
 	padding: 0.1em;
@@ -118,6 +129,9 @@
 	.derived-table__loading{
 		padding: 1.5em;
 	}
+	.derived-table__button_load_more {
+		font-size: var(--text-font-size-sm);
+	}
 }
 
 /* Larger than phablet (also point when grid becomes active) */
@@ -136,6 +150,9 @@
 
 	.derived-table__loading{
 		padding: 2em;
+	}
+	.derived-table__button_load_more {
+		font-size: var(--text-font-size-md);
 	}
 }
 
@@ -176,6 +193,11 @@
 	.derived-table__loading{
 		padding: 4em;
 	}
+
+	.derived-table__button_load_more {
+		font-size: var(--text-font-size-md);
+	}
+
 }
 
 /* Larger than Desktop HD */
@@ -217,6 +239,10 @@
 
 	.derived-table__loading{
 		padding: 5em;
+	}
+
+	.derived-table__button_load_more {
+		font-size: var(--text-font-size-l);
 	}
 	
 }

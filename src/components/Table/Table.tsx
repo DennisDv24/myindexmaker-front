@@ -15,7 +15,7 @@ export const Table = <T,>({
     const [loading, setLoading] = useState(false);
 
     const { component, className, timeout } = loadingOptions;
-    const { getItems, initialVisibleItems, stepsVisibleItems } = loadMoreOptions;
+    const { getItems, initialVisibleItems, stepsVisibleItems, buttonLoadingClass } = loadMoreOptions;
 
     const {
         visibility,
@@ -67,6 +67,8 @@ export const Table = <T,>({
             />
             {visibility < defaultData.length ?
                 <TableFooter
+                    buttonClass={buttonLoadingClass}
+                    size={mapperElements.length}
                     handleLoadMore={handleUpdateVisibility}
                 /> : null
             }

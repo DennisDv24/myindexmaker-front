@@ -70,7 +70,8 @@ export const DerivedCollectionsTable: FC = () => {
             loadMoreOptions={{
                 initialVisibleItems: 1,
                 stepsVisibleItems: 1,
-                getItems: getItems
+                getItems: getItems,
+                buttonLoadingClass: 'derived-table__button_load_more'
             }}
             mapperElements={configElements}
         />
