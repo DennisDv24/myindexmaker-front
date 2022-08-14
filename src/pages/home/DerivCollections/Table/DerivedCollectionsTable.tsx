@@ -8,6 +8,7 @@ import './derivedTable.css'
 
 import { constants } from '../../../../contracts/contracts'
 import CollectionService from '../../../../services/CollectionService/CollectionService'
+import { LoadingEyes } from '../../../../components/LoadingEyes/LoadingEyes'
 
 const headerClassName = 'derived-table__heading';
 const defaultCellClassName = 'derived-table__cell';
@@ -58,6 +59,11 @@ export const DerivedCollectionsTable: FC = () => {
         <Table
             caption='Milady and Remilia derived collections'
             items={[]}
+            loadingOptions={{
+                component: <LoadingEyes props={{ style: { width: '10%' } }} />, 
+                timeout: 1500,
+                className: 'derived-table__loading' 
+            }}
             tableStyles={{
                 tableClass: 'derived-table',
             }}
