@@ -1,0 +1,106 @@
+.about {
+	height: inherit;
+	width: inherit;
+}
+
+.about__section {
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.diamond-bg-wrapper {
+	--size: 14em;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: var(--size);
+	width: var(--size);
+	transform: rotate(45deg);
+	background-color: var(--bg-color);
+	border: 15px double var(--bg-color);
+	background-clip: padding-box;
+	box-shadow: -0.5rem 0.5rem #00000033;
+}
+
+.diamond-bg-wrapper--type-link {
+	display: flex;
+	text-decoration: none;
+}
+
+.diamond__content {
+	--font-size: var(--text-font-size-md);
+	font-size: var(--font-size);
+	text-align: center;
+	transform: rotate(-45deg);
+}
+
+.diamond-bg-wrapper--size-mid {
+	--size: 8em;
+}
+
+.rotate--45deg {
+	transform: rotate(-45deg);
+}
+
+.links {
+	height: 90%;
+	width: max-content;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	background: 
+		linear-gradient(360deg, rgba(255,255,255,0.3) 47%, rgba(185,255,236,0) 100%);
+}
+
+/* Larger than mobile */
+@media (min-width: 400px) {
+	
+}
+
+/* Larger than phablet (also point when grid becomes active) */
+@media (min-width: 550px) {
+	.diamond-bg-wrapper {
+		--size: 20em;
+		height: var(--size);
+		width: var(--size);
+	}
+
+	.diamond-bg-wrapper--size-mid {
+		--size: 10em;
+	}
+}
+
+/* Larger than tablet */
+@media (min-width: 750px) {
+
+}
+
+/* Larger than desktop */
+@media (min-width: 1000px) {
+	.diamond-bg-wrapper {
+		--size: 20em;
+		height: var(--size);
+		width: var(--size);
+		font-size: var(--text-font-size-xl);
+	}
+
+	.diamond-bg-wrapper--size-mid {
+		--size: 10em;
+		font-size: var(--text-font-size-2md);
+	}
+}
+
+/* Larger than Desktop HD */
+@media (min-width: 1200px) {
+	.diamond-bg-wrapper {
+		font-size: var(--text-font-size-xl);
+	}
+
+	.diamond-bg-wrapper--size-mid {
+		font-size: var(--text-font-size-l);
+	}
+}

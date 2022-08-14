@@ -1,28 +1,25 @@
+import { Home } from './pages/home/Home';
+import { AboutPage } from './pages/about/About';
 
-import React from 'react';
-import bgImage from './resources/clouds.png';
-import './App.css';
-
-import { Contents } from './components/Contents/Contents';
-import { AboutPage } from './components/AboutPage/AboutPage';
-
-import { 
-  	BrowserRouter,
-  	Routes,
-  	Route,
+import {
+	BrowserRouter,
+	Routes,
+	Route,
 } from "react-router-dom";
 
+import './App.css';
+
 function App() {
-  	return (
-		<div className='App'>
+	return (
+		<div className="container scrollbar scrollbar--theme-custom">
 			<BrowserRouter>
 				<Routes>
-					<Route path='/' element={<Contents />}/>
-					<Route path='/about' element={<AboutPage />}/>
+					<Route path='/' element={<Home />} />
+					<Route path='/about' element={<AboutPage />} />
 				</Routes>
 			</BrowserRouter>
-    	</div>
-  	);
+		</div>
+	);
 }
 
 

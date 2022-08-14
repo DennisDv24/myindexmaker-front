@@ -5,13 +5,15 @@ type asTypes = Extract<keyof HTMLElementTagNameMap, 'a' | 'button'>;
 
 export type ButtonProps = {
     value: string;
-    as: asTypes;
+    shape?: 'rectangle';
+    as?: asTypes;
     otherProps?: React.HTMLAttributes<HTMLElementTagNameMap[asTypes]>;
 }
 
 export const Button: FC<ButtonProps> = ({
     value,
-    as,
+    shape = 'rectangle',
+    as = 'button',
     otherProps
 }) => {
 
@@ -19,6 +21,7 @@ export const Button: FC<ButtonProps> = ({
         case 'a':
             return (
                 <a 
+                    className={`button button--${shape}`}
                     {...otherProps}
                 >
                     {value}
@@ -27,7 +30,7 @@ export const Button: FC<ButtonProps> = ({
         case 'button':
             return (
                 <button
-                    className='button'
+                    className={`button button--${shape}`}
                     {...otherProps}
                 >
                     {value}
