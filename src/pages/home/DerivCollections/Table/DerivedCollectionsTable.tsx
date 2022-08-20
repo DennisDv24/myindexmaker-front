@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, useEffect, useState } from 'react'
 
 import { Collection } from '../../../../models/Collection'
 import { Table } from '../../../../components/Table/Table'
@@ -45,15 +45,19 @@ const configElements: ElementTable<Collection>[] = [
         cellClassName: roundedCellClassName
     },
     {
-        label: 'Rank', accessor: 'daoRank',
+        label: 'Match', accessor: 'match',
         sortable: true, headerClassName: headerClassName,
         cellClassName: roundedCellClassName
     }
 ]
 
-export const DerivedCollectionsTable: FC = () => {
+type DerivCollectionProps = {
+    functionRetrieveData: GetItems<Collection>;
+}
 
-    const getItems: GetItems<Collection> = () => CollectionService.getCollections(constants.contracts);
+export const DerivedCollectionsTable: FC<DerivCollectionProps> = ({
+    functionRetrieveData
+}) => {
 
     return (
         <Table
@@ -68,9 +72,9 @@ export const DerivedCollectionsTable: FC = () => {
                 tableClass: 'derived-table',
             }}
             loadMoreOptions={{
-                initialVisibleItems: 1,
-                stepsVisibleItems: 1,
-                getItems: getItems,
+                initialVisibleItems: 5,
+                stepsVisibleItems: 3,
+                getItems: functionRetrieveData,
                 buttonLoadingClass: 'derived-table__button_load_more'
             }}
             mapperElements={configElements}
