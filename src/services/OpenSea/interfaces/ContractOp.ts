@@ -33,7 +33,7 @@ export interface ContractOp {
 		instagram_username: string | null;
 		wiki_url: string;
 		is_nsfw: boolean
-	};
+	} | null;
 	address: string;
 	asset_contract_type: string;
 	created_date: string;

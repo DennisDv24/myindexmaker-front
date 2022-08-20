@@ -89,7 +89,7 @@ export interface CollectionOp {
         featured_image_url: string;
         hidden: false;
         safelist_request_status: string;
-        image_url: string;
+        image_url: string | null;
         is_subject_to_whitelist: false;
         large_image_url: string;
         medium_username: string | null;
@@ -106,5 +106,5 @@ export interface CollectionOp {
         instagram_username: string | null;
         wiki_url: string | null;
         is_nsfw: boolean;
-    }
+    } | null
 }
