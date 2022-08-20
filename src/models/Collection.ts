@@ -7,8 +7,9 @@ export class DerivedCollection implements Collection {
     readonly tokensPerWallet: string;
     readonly daoRank: number;
     readonly address: string;
+    readonly match: number;
 
-    constructor ({ name, img, volume, supply, tokensPerWallet, daoRank, address } : Collection) {
+    constructor ({ name, img, volume, supply, tokensPerWallet, daoRank, address, match } : Collection) {
         this.name = name;
         this.img = img;
         this.volume = volume;
@@ -16,6 +17,7 @@ export class DerivedCollection implements Collection {
         this.tokensPerWallet = tokensPerWallet;
         this.daoRank = daoRank;
         this.address = address;
+        this.match = match;
     }
 
 
@@ -29,4 +31,5 @@ export interface Collection {
     tokensPerWallet: string;
     daoRank: number;
     address: string;
+    match: number;
 }
