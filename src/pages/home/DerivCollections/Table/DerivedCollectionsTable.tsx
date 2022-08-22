@@ -1,14 +1,11 @@
-import { FC, useEffect, useState } from 'react'
+import { FC } from 'react'
 
 import { Collection } from '../../../../models/Collection'
 import { Table } from '../../../../components/Table/Table'
 import { GetItems, ElementTable } from '../../../../components/Table/TableTypes'
-import './derivedTable.css'
-
-
-import { constants } from '../../../../contracts/contracts'
-import CollectionService from '../../../../services/CollectionService/CollectionService'
 import { LoadingEyes } from '../../../../components/LoadingEyes/LoadingEyes'
+
+import './derivedTable.css'
 
 const headerClassName = 'derived-table__heading';
 const defaultCellClassName = 'derived-table__cell';
