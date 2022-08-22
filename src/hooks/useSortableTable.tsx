@@ -9,15 +9,13 @@ type LoadMoreOptions = {
 
 export const useSortableTable = <T,>(data: T[], options: LoadMoreOptions) => {
 
-    const [defaultData, setDefaultData] = useState<T[]>(data);
     const [tableData, setTableData] = useState<T[]>(data);
     const [visibility, setVisibility] = useState<number>(options.initialVisibleItems);
 
     const handleSorting: HandleSortingFn<T> = (sortField, orderType) => {
         if (sortField) {
             const locales = ['es', 'en'];
-            const copyItems = [...tableData].slice(0, visibility);
-            
+            const copyItems = [...tableData];
             copyItems.sort(sortStringOrNumber(orderType, locales, sortField));
 
             setTableData(copyItems);
@@ -25,15 +23,12 @@ export const useSortableTable = <T,>(data: T[], options: LoadMoreOptions) => {
     }
 
     const handleUpdateVisibility = () => {
-        setTableData(defaultData);
         setVisibility(visibility + options.stepsVisibleItems);
     }
 
     return {
         tableData,
         visibility,
-        defaultData,
-        setDefaultData,
         setTableData,
         handleSorting,
         handleUpdateVisibility

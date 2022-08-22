@@ -72,8 +72,8 @@ export const DerivedCollectionsTable: FC<DerivCollectionProps> = ({
                 tableClass: 'derived-table',
             }}
             loadMoreOptions={{
-                initialVisibleItems: 5,
-                stepsVisibleItems: 3,
+                initialVisibleItems: 1,
+                stepsVisibleItems: 1,
                 getItems: functionRetrieveData,
                 buttonLoadingClass: 'derived-table__button_load_more'
             }}

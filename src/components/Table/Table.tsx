@@ -20,9 +20,7 @@ export const Table = <T,>({
     const {
         visibility,
         tableData,
-        defaultData,
         handleSorting,
-        setDefaultData,
         setTableData,
         handleUpdateVisibility,
     } = useSortableTable(items, { initialVisibleItems: initialVisibleItems, stepsVisibleItems: stepsVisibleItems });
@@ -30,10 +28,9 @@ export const Table = <T,>({
     useEffect(() => {
 
         function loadItems() {
-
+            setTableData([]);
             getItems()
                 .then(items => {
-                    setDefaultData(items);
                     setTableData(items);
                     setLoading(false);
                 })
@@ -49,7 +46,7 @@ export const Table = <T,>({
         return () => {
 
         }
-    }, [getItems, loadMoreOptions, setDefaultData, setTableData, timeout]);
+    }, [getItems, loadMoreOptions, setTableData, timeout]);
 
     return (
         <table className={tableStyles?.tableClass} >
@@ -65,7 +62,7 @@ export const Table = <T,>({
                 mapperTable={mapperElements}
                 visibility={visibility}
             />
-            {visibility < defaultData.length ?
+            {visibility < tableData.length ?
                 <TableFooter
                     buttonClass={buttonLoadingClass}
                     size={mapperElements.length}
