@@ -22,7 +22,7 @@ const configElements: ElementTable<Collection>[] = [
     },
     {
         label: 'Name', accessor: 'name',
-        sortable: true, headerClassName: headerClassName,
+        sortable: true, headerClassName: `${headerClassName}`,
         cellClassName: roundedCellClassName
     },
     {
@@ -44,6 +44,7 @@ const configElements: ElementTable<Collection>[] = [
     {
         label: 'Match', accessor: 'match',
         sortable: true, headerClassName: headerClassName,
+        parserValue: (value) => `${Number(value) === 1 ? value: Number(value).toPrecision(2)}`,
         cellClassName: roundedCellClassName
     }
 ]
