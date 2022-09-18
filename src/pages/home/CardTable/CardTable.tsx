@@ -6,7 +6,7 @@ import CollectionService from '../../../services/CollectionService/CollectionSer
 import { constants } from '../DerivCollections/constants';
 
 const getItems: GetItems<Collection> = () => CollectionService.getCollections(constants.contracts);
-const getItemsExperimental: GetItems<Collection> = () => CollectionService.getCollectionsExperimental(0.9);
+const getItemsExperimental: GetItems<Collection> = () => CollectionService.getCollectionsExperimental(0.05);
 
 export const CardTable = () => {
 
