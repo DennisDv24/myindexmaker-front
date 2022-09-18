@@ -22,8 +22,8 @@ const configElements: ElementTable<Collection>[] = [
     },
     {
         label: 'Name', accessor: 'name',
-        sortable: true, headerClassName: `${headerClassName}`,
-        cellClassName: roundedCellClassName
+        sortable: true, headerClassName: headerClassName,
+        cellClassName: `${roundedCellClassName} word-break`
     },
     {
         label: 'Volume', accessor: 'volume',

@@ -12,3 +12,7 @@
 	--text-font-size-s: 0.5em;
 	--text-font-size-xs: 0.25em;
 }
+
+.word-break{
+	word-break: break-all;
+}
