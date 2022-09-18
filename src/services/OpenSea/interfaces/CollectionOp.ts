@@ -35,7 +35,7 @@ interface PaymentTokenOp {
     usd_price: number;
 }
 
-interface PrimaryAssetContractOp {
+export interface PrimaryAssetContractOp {
     address: string;
     asset_contract_type: string;
     created_date: string;

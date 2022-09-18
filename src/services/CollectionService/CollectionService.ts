@@ -1,24 +1,26 @@
 import { Collection, DerivedCollection } from "../../models/Collection";
-import { CollectionOp } from "../OpenSea/interfaces/CollectionOp";
+import { CollectionOp, PrimaryAssetContractOp } from "../OpenSea/interfaces/CollectionOp";
 import OpenseaService from "../OpenSea/OpenseaService";
 import HyperGraph from '../HyperGraph/Hypergraph';
 import { ContractOp } from "../OpenSea/interfaces/ContractOp";
 
 const CollectionService = () => {
-
+    
+    const addrRegex = /^[0-9xa-fA-F]+$/;
+    
     const getCollections = async (contracts: readonly string[]): Promise<Collection[]> => {
-
+        
         const contractsPromises = contracts.map(contract => OpenseaService.getContract(contract));
         const contractsData = await Promise.all(contractsPromises);
-
+        
         const collectionPromises = contractsData.map(contract => OpenseaService.getCollection(contract.data.collection!.slug));
         const collectionsData = await Promise.all(collectionPromises);
-
+        
         const derivedCollections = collectionsData.map(collection => {
-            const { address } = collection.data.collection!.primary_asset_contracts[0];
+            const { address } = collection.data.collection!.primary_asset_contracts[0]
             const { name, image_url } = collection.data.collection!;
             const { total_volume, total_supply, num_owners } = collection.data.collection!.stats;
-
+            
             const derivateCollection: Collection = {
                 address: address,
                 daoRank: 0,
@@ -29,13 +31,27 @@ const CollectionService = () => {
                 volume: (Math.round(Number(total_volume.toFixed(0)) * 100) / 100),
                 match: 1
             }
-
+            
             return new DerivedCollection(derivateCollection);
         })
-
+        
         return derivedCollections;
     }
+    
+    const validateContractName = (name: string) => {
+        name = name.trim();
+        return name.length !== 0 && !addrRegex.test(name);
+    }
+    
+    const getMatchPercentByAddress = (primary_asset_contracts: PrimaryAssetContractOp[], mapRelatedCollections: Map<string, number>) => {
+        for (const { address } of primary_asset_contracts) {
+            if (mapRelatedCollections.has(address)) {
+                return mapRelatedCollections.get(address);
+            }
+        }
+    }
 
+    
     const getCollectionsExperimental = async (relation: number): Promise<Collection[]> => {
         
         const relatedCollections = await HyperGraph.getRelatedCollections(relation);
@@ -68,7 +84,7 @@ const CollectionService = () => {
     
         collectionResponses.forEach((collectionResponse) => {
             if (collectionResponse.status === 'fulfilled') {
-                if (collectionResponse.value.data.collection) {
+                if (collectionResponse.value.data.collection && validateContractName(collectionResponse.value.data.collection.name)) {
                     collectionsOp.push(collectionResponse.value.data);
                 }
             }
@@ -78,9 +94,11 @@ const CollectionService = () => {
     
         for (let index = 0; index < collectionsOp.length; index++) {
             const collection = collectionsOp[index];
-            const { address } = collection.collection!.primary_asset_contracts[0];
-            const { name, image_url } = collection.collection!;
-            const { total_volume, total_supply, num_owners } = collection.collection!.stats;
+            const collectionContent = collection.collection!;
+            const match = getMatchPercentByAddress(collectionContent.primary_asset_contracts, mapRelatedCollections);
+            const { address } = collectionContent.primary_asset_contracts[0];
+            const { name, image_url } = collectionContent;
+            const { total_volume, total_supply, num_owners } = collectionContent.stats;
     
             const derivateCollection: Collection = {
                 address: address,
@@ -90,7 +108,7 @@ const CollectionService = () => {
                 supply: total_supply,
                 tokensPerWallet: (Math.round(total_supply / num_owners * 10) / 10).toString(),
                 volume: (Math.round(Number(total_volume.toFixed(0)) * 100) / 100),
-                match: mapRelatedCollections.get(address)!
+                match: match!
             }
     
             derivCollections.push(new DerivedCollection(derivateCollection));
