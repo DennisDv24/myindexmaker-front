@@ -28,7 +28,7 @@ const configElements: ElementTable<Collection>[] = [
         label: 'Name', accessor: 'name',
         sortable: true, headerClassName: headerClassName,
         cellClassName: `${roundedCellClassName} word-break`,
-        parserValueNode: (item) => <LinkParser text={item.name} linkProps={{ href: item.openseaLink }} />
+        parserValueNode: (item) => <LinkParser text={item.name} linkProps={{ href: item.openseaLink, target:'_blank' }} />
     },
     {
         label: 'Volume', accessor: 'volume',
