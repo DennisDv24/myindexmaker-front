@@ -7,13 +7,13 @@ export const TableRow = <T,>({
 }: TableRowProps<T>) => {
     return (
         <tr>
-            {mapperTable.map(({ accessor, cellClassName, label, imageProps, parserValue }, i) => (
+            {mapperTable.map(({ accessor, cellClassName, label, parserValueNode }, i) => (
                 <TableCell
                     value={item[accessor]}
+                    data={item}
                     key={`${label}${i}`}
-                    imageProps={imageProps}
                     cellClassname={cellClassName}
-                    parser={parserValue}
+                    parserNode={parserValueNode}
                 />
             ))}
         </tr>

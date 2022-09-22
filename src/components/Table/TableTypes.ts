@@ -7,6 +7,7 @@ export type ElementTable<T> = {
 	cellClassName: string;
     headerClassName?: string;
     parserValue?: (value: T[keyof T]) => string;
+    parserValueNode?: (item: T) => React.ReactNode;
     imageProps?: React.DetailedHTMLProps<React.ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement>;
 }
 
@@ -53,9 +54,10 @@ export type TableRowProps<T> = {
 }
 
 export type TableCellProps<T,> = {
+    data: T;
     value: T[keyof T];
     parser?: (value: T[keyof T]) => string;
-    imageProps?: React.DetailedHTMLProps<React.ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement>;
+    parserNode?: (item: T) => React.ReactNode;
     cellClassname: string;
 }
 
