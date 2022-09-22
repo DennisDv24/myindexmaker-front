@@ -8,9 +8,11 @@ export class DerivedCollection implements Collection {
     readonly daoRank: number;
     readonly address: string;
     readonly match: number;
+    readonly openseaLink: string;
 
-    constructor ({ name, img, volume, supply, tokensPerWallet, daoRank, address, match } : Collection) {
+    constructor ({ name, img, volume, supply, tokensPerWallet, daoRank, address, match, openseaLink } : Collection) {
         this.name = name;
+        this.openseaLink = openseaLink;
         this.img = img;
         this.volume = volume;
         this.supply = supply;
@@ -25,6 +27,7 @@ export class DerivedCollection implements Collection {
 
 export interface Collection {
     name: string;
+    openseaLink: string;
     img: string;
     volume: number;
     supply: number;

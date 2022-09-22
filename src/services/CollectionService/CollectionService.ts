@@ -18,7 +18,7 @@ const CollectionService = () => {
         
         const derivedCollections = collectionsData.map(collection => {
             const { address } = collection.data.collection!.primary_asset_contracts[0]
-            const { name, image_url } = collection.data.collection!;
+            const { name, image_url, slug } = collection.data.collection!;
             const { total_volume, total_supply, num_owners } = collection.data.collection!.stats;
             
             const derivateCollection: Collection = {
@@ -26,8 +26,9 @@ const CollectionService = () => {
                 daoRank: 0,
                 img: image_url ? image_url : 'https://via.placeholder.com/150',
                 name: name,
+                openseaLink: `https://opensea.io/es/collection/${slug}`,
                 supply: total_supply,
-                tokensPerWallet: (Math.round(total_supply / num_owners * 10) / 10).toString(),
+                tokensPerWallet: _calculateTokensPerWallet(total_supply, total_volume),
                 volume: (Math.round(Number(total_volume.toFixed(0)) * 100) / 100),
                 match: 1
             }
@@ -35,15 +36,24 @@ const CollectionService = () => {
             return new DerivedCollection(derivateCollection);
         })
         
+
         return derivedCollections;
     }
     
-    const validateContractName = (name: string) => {
+    const _calculateTokensPerWallet = (totalSupply: number, numOwners: number) => {
+        if (totalSupply === 0 || numOwners === 0) {
+            return '0';
+        }
+        
+        return (Math.round(totalSupply / numOwners * 10) / 10).toString();
+    }
+
+    const _validateContractName = (name: string) => {
         name = name.trim();
         return name.length !== 0 && !addrRegex.test(name);
     }
     
-    const getMatchPercentByAddress = (primary_asset_contracts: PrimaryAssetContractOp[], mapRelatedCollections: Map<string, number>) => {
+    const _getMatchPercentByAddress = (primary_asset_contracts: PrimaryAssetContractOp[], mapRelatedCollections: Map<string, number>) => {
         for (const { address } of primary_asset_contracts) {
             if (mapRelatedCollections.has(address)) {
                 return mapRelatedCollections.get(address);
@@ -84,7 +94,7 @@ const CollectionService = () => {
     
         collectionResponses.forEach((collectionResponse) => {
             if (collectionResponse.status === 'fulfilled') {
-                if (collectionResponse.value.data.collection && validateContractName(collectionResponse.value.data.collection.name)) {
+                if (collectionResponse.value.data.collection && _validateContractName(collectionResponse.value.data.collection.name)) {
                     collectionsOp.push(collectionResponse.value.data);
                 }
             }
@@ -95,9 +105,9 @@ const CollectionService = () => {
         for (let index = 0; index < collectionsOp.length; index++) {
             const collection = collectionsOp[index];
             const collectionContent = collection.collection!;
-            const match = getMatchPercentByAddress(collectionContent.primary_asset_contracts, mapRelatedCollections);
+            const match = _getMatchPercentByAddress(collectionContent.primary_asset_contracts, mapRelatedCollections);
             const { address } = collectionContent.primary_asset_contracts[0];
-            const { name, image_url } = collectionContent;
+            const { name, image_url, slug } = collectionContent;
             const { total_volume, total_supply, num_owners } = collectionContent.stats;
     
             const derivateCollection: Collection = {
@@ -105,8 +115,9 @@ const CollectionService = () => {
                 daoRank: 0,
                 img: image_url ? image_url : 'https://via.placeholder.com/150',
                 name: name,
+                openseaLink: `https://opensea.io/es/collection/${slug}`,
                 supply: total_supply,
-                tokensPerWallet: (Math.round(total_supply / num_owners * 10) / 10).toString(),
+                tokensPerWallet: _calculateTokensPerWallet(total_supply, total_volume),
                 volume: (Math.round(Number(total_volume.toFixed(0)) * 100) / 100),
                 match: match!
             }
